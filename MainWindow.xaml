@@ -9,9 +9,11 @@
         Title="OPTIMIZATOR 2000"
         Height="650"
         Width="1100"
+        AllowsTransparency="True"
         Background="Transparent"
         WindowStyle="None"
-        ResizeMode="NoResize">
+        ResizeMode="NoResize"
+        Icon="Images/icon.ico">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
