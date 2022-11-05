@@ -11,11 +11,11 @@ namespace Twixer.MVVM.ViewModel
     {
 
         public RelayCommand PrivacyViewCommand { get; set; }
-        public RelayCommand InterfaceViewCommand { get; set; }
+        public RelayCommand InfoAboutSystemCommand { get; set; }
 
 
         public PrivacyViewModel PrivacyVM { get; set; }
-        public InterfaceViewModel InterfaceVM { get; set; }
+        public InfoAboutSystemViewModel InfoAboutSystemVM { get; set; }
 
         private object _currentView;
 
@@ -32,7 +32,7 @@ namespace Twixer.MVVM.ViewModel
         public MainViewModel()
         {
             PrivacyVM = new PrivacyViewModel();
-            InterfaceVM = new InterfaceViewModel();
+            InfoAboutSystemVM = new InfoAboutSystemViewModel();
             CurrentView = PrivacyVM;
 
             PrivacyViewCommand = new RelayCommand(o =>
@@ -40,9 +40,9 @@ namespace Twixer.MVVM.ViewModel
                 CurrentView = PrivacyVM;
             });
 
-            InterfaceViewCommand = new RelayCommand(o =>
+            InfoAboutSystemCommand = new RelayCommand(o =>
             {
-                CurrentView = InterfaceVM;
+                CurrentView = InfoAboutSystemVM;
             });
         }
     }

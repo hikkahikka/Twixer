@@ -73,7 +73,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MVVM\View\InterfaceView.xaml">
+    <Page Include="MVVM\View\InfoAboutSystemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -91,11 +91,11 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\ViewModel\InterfaceViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\InfoAboutSystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PrivacyViewModel.cs" />
-    <Compile Include="MVVM\View\InterfaceView.xaml.cs">
-      <DependentUpon>InterfaceView.xaml</DependentUpon>
+    <Compile Include="MVVM\View\InfoAboutSystemView.xaml.cs">
+      <DependentUpon>InfoAboutSystemView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\PrivacyView.xaml.cs">
       <DependentUpon>PrivacyView.xaml</DependentUpon>

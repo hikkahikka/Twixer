@@ -42,19 +42,21 @@
                 Style="{StaticResource MenuButtonTheme}"
                 IsChecked="True"
                 Command="{Binding PrivacyViewCommand}"/>
-                
-                <RadioButton Content="Интерфейс"
+
+                <RadioButton Content="Система"
+                Style="{StaticResource MenuButtonTheme}"/>
+
+
+
+                <RadioButton Content="Данные о системе"
                 Style="{StaticResource MenuButtonTheme}"
-                Command="{Binding InterfaceViewCommand}"/>
+                Command="{Binding InfoAboutSystemCommand}"/>
                 
                 
                 <RadioButton Content="Приложения"
                 Style="{StaticResource MenuButtonTheme}"/>
                 
-                <RadioButton Content="Система"
-                Style="{StaticResource MenuButtonTheme}"/>
-                
-                <RadioButton Content="Прочее"
+                                <RadioButton Content="Прочее"
                 Style="{StaticResource MenuButtonTheme}"/>
 
             </StackPanel>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Twixer.MVVM.ViewModel
 {
-    class InterfaceViewModel
+    class InfoAboutSystemViewModel
     {
     }
 }

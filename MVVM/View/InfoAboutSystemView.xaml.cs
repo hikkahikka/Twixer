@@ -18,9 +18,9 @@ namespace Twixer.MVVM.View
     /// <summary>
     /// Логика взаимодействия для InterfaceView.xaml
     /// </summary>
-    public partial class InterfaceView : UserControl
+    public partial class InfoAboutSystemView : UserControl
     {
-        public InterfaceView()
+        public InfoAboutSystemView()
         {
             InitializeComponent();
         }

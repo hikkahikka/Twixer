@@ -20,8 +20,8 @@
                 <view:PrivacyView/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type viewModel:InterfaceViewModel}">
-                <view:InterfaceView/>
+            <DataTemplate DataType="{x:Type viewModel:InfoAboutSystemViewModel}">
+                <view:InfoAboutSystemView/>
             </DataTemplate>
 
         </ResourceDictionary>
