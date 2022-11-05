@@ -12,6 +12,7 @@
             <ResourceDictionary.MergedDictionaries>
                 
                 <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/NavigationButtonTheme.xaml"/>
                 <ResourceDictionary Source="Themes/ListCheckBoxTheme.xaml"/>
                 
             </ResourceDictionary.MergedDictionaries>

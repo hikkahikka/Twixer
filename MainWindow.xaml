@@ -36,6 +36,18 @@
                        HorizontalAlignment="Center"
                        FontWeight="Bold"
                        FontSize="22"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Width="100">
+
+                <Button Content="—" 
+                        FontWeight="ExtraBold"
+                        Style="{StaticResource NavigationButtonTheme}"
+                        Command="{Binding OnTurnButtonClickCommand}"
+                        />
+                <Button Style="{StaticResource NavigationButtonTheme}"
+                        Content="❌" 
+                        Command="{Binding OnCloseButtonClickCommand}"
+                        />
+            </StackPanel>
 
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Конфиденциальность"
