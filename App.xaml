@@ -19,7 +19,11 @@
             <DataTemplate DataType="{x:Type viewModel:PrivacyViewModel}">
                 <view:PrivacyView/>
             </DataTemplate>
-            
+
+            <DataTemplate DataType="{x:Type viewModel:InterfaceViewModel}">
+                <view:InterfaceView/>
+            </DataTemplate>
+
         </ResourceDictionary>
         
     </Application.Resources>

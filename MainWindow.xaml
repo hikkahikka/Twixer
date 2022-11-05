@@ -39,10 +39,14 @@
 
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Конфиденциальность"
-                Style="{StaticResource MenuButtonTheme}"/>
+                Style="{StaticResource MenuButtonTheme}"
+                IsChecked="True"
+                Command="{Binding PrivacyViewCommand}"/>
                 
                 <RadioButton Content="Интерфейс"
-                Style="{StaticResource MenuButtonTheme}"/>
+                Style="{StaticResource MenuButtonTheme}"
+                Command="{Binding InterfaceViewCommand}"/>
+                
                 
                 <RadioButton Content="Приложения"
                 Style="{StaticResource MenuButtonTheme}"/>
