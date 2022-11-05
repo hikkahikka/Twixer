@@ -1,17 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
-           TargetType="{x:Type RadioButton}"
-           x:Key="MenuButtonTheme">
+           TargetType="{x:Type CheckBox}"
+           x:Key="ListCheckBoxTheme">
         <Style.Setters>
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="RadioButton">
+                    <ControlTemplate TargetType="CheckBox">
                         <Grid VerticalAlignment="Stretch"
                           HorizontalAlignment="Stretch"
                           Background="{TemplateBinding Background}">
                             <TextBlock Text="{TemplateBinding Property=Content}"
-                                   Margin="50, 0, 0,0"
+                                   Margin="10, 0, 0,0"
                                    VerticalAlignment="Center"/>
                         </Grid>
                     </ControlTemplate>
@@ -20,14 +20,14 @@
 
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="BorderThickness" Value="0"/>
-            <Setter Property="Height" Value="55"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="FontSize" Value="14"/>
 
         </Style.Setters>
 
         <Style.Triggers>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="#F199F3"/>
+                <Setter Property="Background" Value="#EB86CB"/>
             </Trigger>
         </Style.Triggers>
         

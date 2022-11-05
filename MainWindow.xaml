@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModel="clr-namespace:Twixer.MVVM.ViewModel"
         xmlns:local="clr-namespace:Twixer"
         mc:Ignorable="d"
         Title="OPTIMIZATOR 2000"
@@ -11,7 +12,9 @@
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize">
-
+    <Window.DataContext>
+        <viewModel:MainViewModel/>
+    </Window.DataContext>
 
     <Border Background="#F4BCF5"
             CornerRadius="20">
@@ -36,32 +39,27 @@
 
             <StackPanel Grid.Row="1">
                 <RadioButton Content="Конфиденциальность"
-                Height="55"
-                FontSize="18"
                 Style="{StaticResource MenuButtonTheme}"/>
                 
                 <RadioButton Content="Интерфейс"
-                Height="55"
-                FontSize="18"
                 Style="{StaticResource MenuButtonTheme}"/>
                 
                 <RadioButton Content="Приложения"
-                Height="55"
-                FontSize="18"
                 Style="{StaticResource MenuButtonTheme}"/>
                 
                 <RadioButton Content="Система"
-                Height="55"
-                FontSize="18"
                 Style="{StaticResource MenuButtonTheme}"/>
                 
                 <RadioButton Content="Прочее"
-                Height="55"
-                FontSize="18"
                 Style="{StaticResource MenuButtonTheme}"/>
-                
-                
+
             </StackPanel>
+
+            <ContentControl Grid.Row="1"
+                            Grid.Column="1"
+                            Margin="5"
+                            Content="{Binding CurrentView}"/>
+
         </Grid>
         
     </Border>
