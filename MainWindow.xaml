@@ -51,7 +51,7 @@
                         />
             </StackPanel>
 
-            <StackPanel Grid.Row="1">
+            <StackPanel Grid.Row="1" Background="#F4B3F5">
                 <RadioButton Content="Конфиденциальность"
                 Style="{StaticResource MenuButtonTheme}"
                 IsChecked="True"
@@ -77,7 +77,7 @@
 
             <ContentControl Grid.Row="1"
                             Grid.Column="1"
-                            Margin="5"
+                            Margin="5,0,5,5"
                             Content="{Binding CurrentView}"/>
 
         </Grid>
