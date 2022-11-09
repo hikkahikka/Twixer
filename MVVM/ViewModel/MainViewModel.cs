@@ -56,6 +56,7 @@ namespace Twixer.MVVM.ViewModel
             OnCloseButtonClickCommand = new RelayCommand(o => Application.Current.Shutdown());
             OnTurnButtonClickCommand = new RelayCommand(o => {
                 Application.Current.MainWindow.WindowState = WindowState.Minimized;
+                
                 });
 
         }

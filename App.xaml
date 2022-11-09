@@ -16,7 +16,8 @@
                 <ResourceDictionary Source="Themes/HelpingButtonTheme.xaml"/>
                 <ResourceDictionary Source="Themes/ListCheckBoxTheme.xaml"/>
                 <ResourceDictionary Source="Themes/LabelInfoTextTheme.xaml"/>
-
+                <ResourceDictionary Source="Themes/InfoTextTheme.xaml"/>
+                <ResourceDictionary Source="Themes/CopyButtonTheme.xaml"/>
 
 
             </ResourceDictionary.MergedDictionaries>
