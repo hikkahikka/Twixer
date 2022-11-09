@@ -22,6 +22,7 @@
             <Setter Property="BorderThickness" Value="0"/>
             <Setter Property="Height" Value="30"/>
             <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="0,5,5,0"/>
 
         </Style.Setters>
 
