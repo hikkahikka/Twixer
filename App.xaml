@@ -30,6 +30,10 @@
                 <view:InfoAboutSystemView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:SystemViewModel}">
+                <view:SystemView/>
+            </DataTemplate>
+
         </ResourceDictionary>
         
     </Application.Resources>

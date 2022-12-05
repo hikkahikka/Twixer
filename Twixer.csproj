@@ -78,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\SystemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MVVM\View\InfoAboutSystemView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -116,9 +120,13 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\InfoAboutSystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PrivacyViewModel.cs" />
+    <Compile Include="MVVM\View\SystemView.xaml.cs">
+      <DependentUpon>SystemView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\InfoAboutSystemView.xaml.cs">
       <DependentUpon>InfoAboutSystemView.xaml</DependentUpon>
     </Compile>

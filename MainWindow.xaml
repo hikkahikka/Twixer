@@ -58,13 +58,14 @@
                 Command="{Binding PrivacyViewCommand}"/>
 
                 <RadioButton Content="Система"
-                Style="{StaticResource MenuButtonTheme}"/>
+                Style="{StaticResource MenuButtonTheme}"
+                Command="{Binding SystemViewCommand}"/>
 
 
 
                 <RadioButton Content="Данные о системе"
                 Style="{StaticResource MenuButtonTheme}"
-                Command="{Binding InfoAboutSystemCommand}"/>
+                Command="{Binding InfoAboutSystemViewCommand}"/>
                 
                 
                 <RadioButton Content="Приложения"

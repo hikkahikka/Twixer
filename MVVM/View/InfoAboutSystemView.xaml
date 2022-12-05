@@ -142,8 +142,5 @@
                 Grid.Row="7"
                 Style="{StaticResource CopyButtonTheme}"/>
 
-
-
-
     </Grid>
 </UserControl>
