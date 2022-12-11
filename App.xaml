@@ -33,6 +33,10 @@
             <DataTemplate DataType="{x:Type viewModel:SystemViewModel}">
                 <view:SystemView/>
             </DataTemplate>
+            
+            <DataTemplate DataType="{x:Type viewModel:DefoltAppsViewModel}">
+                <view:DefoltAppsView/>
+            </DataTemplate>
 
         </ResourceDictionary>
         

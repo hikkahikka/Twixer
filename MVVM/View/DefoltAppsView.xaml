@@ -34,7 +34,11 @@
 
         <TextBlock Text="Наведите на кнопку с нужным приложение, чтобы прочитать его описание"
                    Grid.Column="0"
-                   Grid.Row="0"/>
+                   Grid.Row="0"
+                   FontSize="14"
+                   TextWrapping="Wrap"
+                   FontStyle="Italic"
+                   LineHeight="1"/>
         
         <Button Content="Удалить выбранное"
                     Style="{StaticResource HelpingButtonTheme}"
@@ -94,6 +98,65 @@
         <CheckBox Content="Кино и ТВ"
                      Style="{StaticResource ListCheckBoxTheme}"
                     Grid.Column="0"
+                    Grid.Row="11"/>
+
+
+        
+        
+        
+        <CheckBox Content="Музыка Groove"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="1"/>
+
+        <CheckBox Content="Набросок на фрагменте экрана"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="2"/>
+
+        <CheckBox Content="Связь с телефоном"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="3"/>
+
+        <CheckBox Content="Срество 3D просмотра"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="4"/>
+
+        <CheckBox Content="Техническая поддержка"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="5"/>
+
+        <CheckBox Content="Фотографии"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="6"/>
+
+        <CheckBox Content="Часы"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="7"/>
+
+        <CheckBox Content="Skype"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="8"/>
+
+        <CheckBox Content="Проверка работоспособности ПК"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="9"/>
+
+        <CheckBox Content="Лупа"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
+                    Grid.Row="10"/>
+
+        <CheckBox Content="Экранный диктор"
+                     Style="{StaticResource ListCheckBoxTheme}"
+                    Grid.Column="1"
                     Grid.Row="11"/>
 
     </Grid>

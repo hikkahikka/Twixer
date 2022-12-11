@@ -17,11 +17,14 @@ namespace Twixer.MVVM.ViewModel
 
         public RelayCommand SystemViewCommand { get; set; }
 
+        public RelayCommand DefoltAppsCommand { get; set; }
+
         public RelayCommand OnCloseButtonClickCommand { get; set; }
 
         public RelayCommand OnTurnButtonClickCommand { get; set; }
 
 
+        public DefoltAppsViewModel DefoltAppsVM { get; set; }
         public PrivacyViewModel PrivacyVM { get; set; }
 
         public InfoAboutSystemViewModel InfoAboutSystemVM { get; set; }
@@ -45,6 +48,7 @@ namespace Twixer.MVVM.ViewModel
             PrivacyVM = new PrivacyViewModel();
             InfoAboutSystemVM = new InfoAboutSystemViewModel();
             SystemVM=new SystemViewModel();
+            DefoltAppsVM = new DefoltAppsViewModel();
 
             CurrentView = PrivacyVM;
             
@@ -63,6 +67,10 @@ namespace Twixer.MVVM.ViewModel
                 CurrentView = InfoAboutSystemVM;
             });
 
+            DefoltAppsCommand = new RelayCommand(o =>
+            {
+                CurrentView = DefoltAppsVM;
+            });
 
             OnCloseButtonClickCommand = new RelayCommand(o => Application.Current.Shutdown());
             OnTurnButtonClickCommand = new RelayCommand(o => {
