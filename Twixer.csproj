@@ -124,6 +124,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
     <Compile Include="MVVM\ViewModel\DefoltAppsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\InfoAboutSystemViewModel.cs" />
@@ -169,7 +170,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Fonts\" />
-    <Folder Include="MVVM\Model\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
