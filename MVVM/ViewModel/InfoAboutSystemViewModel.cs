@@ -4,21 +4,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Twixer.Core;
+using Twixer.MVVM.Model;
 
 namespace Twixer.MVVM.ViewModel
 {
     class InfoAboutSystemViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-
-        private void OnProperyChanged(string propName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
-        }
-
-         
-
-        public string OS;
     }
 }
