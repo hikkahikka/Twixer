@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Twixer.MVVM.ViewModel
 {
-    class SystemViewModel
+    internal class SystemViewModel
     {
+        public int GetRandomValue()
+        {
+            
+            Random r = new Random();
+            return r.Next(0, 100);
+        }
     }
 }

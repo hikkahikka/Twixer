@@ -1,27 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using Twixer.Core;
+using Prism;
+using Prism.Commands;
+
 
 namespace Twixer.MVVM.ViewModel
 {
-    class MainViewModel:ObservableObject
+    class MainViewModel: INotifyPropertyChanged
     {
 
-        public RelayCommand PrivacyViewCommand { get; set; }
+        public DelegateCommand PrivacyViewCommand { get; set; }
 
-        public RelayCommand InfoAboutSystemViewCommand { get; set; }
+        public DelegateCommand InfoAboutSystemViewCommand { get; set; }
 
-        public RelayCommand SystemViewCommand { get; set; }
+        public DelegateCommand SystemViewCommand { get; set; }
 
-        public RelayCommand DefoltAppsCommand { get; set; }
+        public DelegateCommand DefoltAppsCommand { get; set; }
 
-        public RelayCommand OnCloseButtonClickCommand { get; set; }
+        public DelegateCommand OnCloseButtonClickCommand { get; set; }
 
-        public RelayCommand OnTurnButtonClickCommand { get; set; }
+        public DelegateCommand OnTurnButtonClickCommand { get; set; }
 
 
         public DefoltAppsViewModel DefoltAppsVM { get; set; }
@@ -33,14 +37,21 @@ namespace Twixer.MVVM.ViewModel
 
         private object _currentView;
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public object CurrentView
         {
             get { return _currentView; }
             set 
             {
-                _currentView = value; 
-                OnPropertyChanged();
+                _currentView = value;
+                OnPropertyChanged(null);
             }
+        }
+
+        private void OnPropertyChanged(string prop)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
         public MainViewModel()
@@ -52,31 +63,16 @@ namespace Twixer.MVVM.ViewModel
 
             CurrentView = PrivacyVM;
             
-            PrivacyViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = PrivacyVM;
-            });
+            PrivacyViewCommand = new DelegateCommand(() => CurrentView = PrivacyVM);
 
-            SystemViewCommand = new RelayCommand(o =>
-            {
-                CurrentView=SystemVM;
-            });
+            SystemViewCommand = new DelegateCommand(() => CurrentView = SystemVM);
 
-            InfoAboutSystemViewCommand = new RelayCommand(o =>
-            {
-                CurrentView = InfoAboutSystemVM;
-            });
+            InfoAboutSystemViewCommand = new DelegateCommand(() => CurrentView = InfoAboutSystemVM);
 
-            DefoltAppsCommand = new RelayCommand(o =>
-            {
-                CurrentView = DefoltAppsVM;
-            });
+            DefoltAppsCommand = new DelegateCommand(() => CurrentView = DefoltAppsVM);
 
-            OnCloseButtonClickCommand = new RelayCommand(o => Application.Current.Shutdown());
-            OnTurnButtonClickCommand = new RelayCommand(o => {
-                Application.Current.MainWindow.WindowState = WindowState.Minimized;
-                
-                });
+            OnCloseButtonClickCommand = new DelegateCommand(() => Application.Current.Shutdown());
+            OnTurnButtonClickCommand = new DelegateCommand(() => Application.Current.MainWindow.WindowState = WindowState.Minimized);
 
         }
         
