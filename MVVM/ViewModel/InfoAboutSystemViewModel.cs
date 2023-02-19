@@ -46,7 +46,7 @@ namespace Twixer.MVVM.ViewModel
             OperationSystemButtonCommand = new DelegateCommand(() => OnOperationSystemButtonPress());
             OperationSystem = "start text ";
             OnOperationSystemButtonPress();
-        }
+        } 
 
 
 
