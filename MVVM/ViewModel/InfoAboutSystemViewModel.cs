@@ -11,7 +11,7 @@ using Twixer.MVVM.Model;
 
 namespace Twixer.MVVM.ViewModel
 {
-    class InfoAboutSystemViewModel : INotifyPropertyChanged
+    public class InfoAboutSystemViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler? PropertyChanged;
 
@@ -33,16 +33,18 @@ namespace Twixer.MVVM.ViewModel
 
 
         public DelegateCommand OperationSystemButtonCommand { get; set; }
-        public void OnOperationSystemButtonPress()
+        private void OnOperationSystemButtonPress()
         {
             //при нажатии меняет текст
-            OperationSystem = "random value: " + new SystemViewModel().GetRandomValue();
+            OperationSystem = "ASAS";
             //MessageBox.Show(TextString2);
             
         }
 
         public InfoAboutSystemViewModel()
         {
+           
+
             OperationSystemButtonCommand = new DelegateCommand(() => OnOperationSystemButtonPress());
             OperationSystem = "start text ";
             OnOperationSystemButtonPress();

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Twixer.MVVM.ViewModel;
 
 namespace Twixer.MVVM.View
 {
@@ -25,6 +26,7 @@ namespace Twixer.MVVM.View
         public PrivacyView()
         {
             InitializeComponent();
+            DataContext = new PrivacyViewModel();
         }
     }
 }
