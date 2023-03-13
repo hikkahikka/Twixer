@@ -20,39 +20,135 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private string _buff;
+
+
+        private string _buffOperationSystem;
+        private string _buffMotherboard;
+        private string _buffCPU;
+        private string _buffRAM;
+        private string _buffGPU;
+        private string _buffTimeOfWork;
+
+
         public string OperationSystem
         {
-            get => _buff;
+            get => _buffOperationSystem;
             set
             {
-                _buff = value;
+                _buffOperationSystem = value;
                 OnPropertyChanged(nameof(OperationSystem));
             }
         }
 
-
-        public DelegateCommand OperationSystemButtonCommand { get; set; }
-        private void OnOperationSystemButtonPress()
+        public string Motherboard
         {
-            //при нажатии меняет текст
-            OperationSystem = "ASAS";
-            //MessageBox.Show(TextString2);
+            get => _buffMotherboard;
+            set
+            {
+                _buffMotherboard = value;
+                OnPropertyChanged(nameof(Motherboard));
+            }
+        }
+
+        public string CPU
+        {
+            get => _buffCPU;
+            set
+            {
+                _buffCPU = value; 
+                OnPropertyChanged(nameof(CPU));
+            }
+        }
+
+        public string RAM
+        {
+            get => _buffRAM;
+            set
+            {
+                _buffRAM = value;
+                OnPropertyChanged(nameof(RAM));
+            }
+        }
+
+        public string GPU
+        {
+            get => _buffGPU;
+            set
+            {
+                _buffGPU = value;
+                OnPropertyChanged(nameof(GPU));
+            }
+        }
+
+        public string TimeOfWork
+        {
+            get => _buffTimeOfWork;
+            set
+            {
+                _buffTimeOfWork = value;
+                OnPropertyChanged(nameof(TimeOfWork));
+            }
+        }
+
+
+
+        public DelegateCommand GetOperationSystemCommand { get; set; }
+        public DelegateCommand GetMotherboardCommand { get; set; }
+        public DelegateCommand GetCPUCommand { get; set; }
+        public DelegateCommand GetRAMCommand { get; set; }
+        public DelegateCommand GetGPUCommand { get; set; }
+        public DelegateCommand GetTimeOfWorkCommand { get; set; }
+
+
+        private void GetOperationSystem()
+        {
             
+            OperationSystem =  new InfoAboutSystemModel().GetOperationSystemInfo();  
+
+        }
+        private void GetMotherboard()
+        {
+
+            Motherboard = new InfoAboutSystemModel().GetMotherboardInfo();
+
+        }
+        private void GetCPU()
+        {
+            CPU = new InfoAboutSystemModel().GetCPUInfo();
+        }
+        private void GetRAM()
+        {
+            RAM = new InfoAboutSystemModel().GetRAMInfo();
+        }
+        private void GetGPU()
+        {
+            GPU = new InfoAboutSystemModel().GetGPUInfo();
+        }
+        private void GetTimeOfWork()
+        {
+            TimeOfWork = new InfoAboutSystemModel().GetTimeOfWorkInfo();
         }
 
         public InfoAboutSystemViewModel()
         {
-           
 
-            OperationSystemButtonCommand = new DelegateCommand(() => OnOperationSystemButtonPress());
-            OperationSystem = "start text ";
-            OnOperationSystemButtonPress();
+
+            GetOperationSystemCommand = new DelegateCommand(() => GetOperationSystem());
+            GetMotherboardCommand = new DelegateCommand(() => GetMotherboard());    
+            GetCPUCommand= new DelegateCommand(() => GetCPU());
+            GetRAMCommand= new DelegateCommand(() => GetRAM());
+            GetGPUCommand= new DelegateCommand(() => GetGPU());
+            GetTimeOfWorkCommand=new DelegateCommand(() => GetTimeOfWork());
+
+
+            GetOperationSystem();
+            GetMotherboard();
+            GetCPU();
+            GetRAM();
+            GetGPU();
+            GetTimeOfWork();
+
         } 
-
-
-
-
 
 
     }

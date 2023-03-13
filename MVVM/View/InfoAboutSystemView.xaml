@@ -23,7 +23,6 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="5*"/>
 
         </Grid.RowDefinitions>
@@ -53,68 +52,71 @@
                    Grid.Row="4"
                    Style="{StaticResource LabelInfoTextTheme}"/>
 
-        <TextBlock Text = "Монитор: " 
-                   Grid.Column="0"
-                   Grid.Row="5"
-                   Style="{StaticResource LabelInfoTextTheme}"/>
+        
 
         <TextBlock Text = "Время работы компьютера: " 
                    Grid.Column="0"
-                   Grid.Row="6"
+                   Grid.Row="5"
                    Style="{StaticResource LabelInfoTextTheme}"/>
 
 
 
         <TextBlock Text = "IP адрес: " 
                    Grid.Column="0"
-                   Grid.Row="7"
+                   Grid.Row="6"
                    Style="{StaticResource LabelInfoTextTheme}"/>
 
-        <TextBlock x:Name="OS" Text="{Binding OperationSystem}"
+        
+        
+        
+        <TextBlock x:Name="OS"
+                   Text="{Binding OperationSystem}"
                    Grid.Column="1"
                    Grid.Row="0"
                    Style="{StaticResource InfoTextTheme}"/>
-        <TextBlock x:Name="motherboard" Text=""
+        
+        <TextBlock x:Name="motherboard"
+                   Text="{Binding Motherboard}"
                    Grid.Column="1"
                    Grid.Row="1"
                    Style="{StaticResource InfoTextTheme}"/>
+        
         <TextBlock x:Name="CP"
+                   Text="{Binding CPU}"
                    Grid.Column="1"
                    Grid.Row="2"
                    Style="{StaticResource InfoTextTheme}"/>
+        
         <TextBlock x:Name="RAM"
-                   Text=""
+                   Text="{Binding RAM}"
                    Grid.Column="1"
                    Grid.Row="3"
                    Style="{StaticResource InfoTextTheme}"/>
+        
         <TextBlock 
                    x:Name="GPU"
-                   Text=""
+                   Text="{Binding GPU}"
                    Grid.Column="1"
                    Grid.Row="4"
                    Style="{StaticResource InfoTextTheme}"/>
-        <TextBlock x:Name="monitor"
-                   Text=""
+        
+        <TextBlock x:Name="timeWorkPC"
+                   Text="{Binding TimeOfWork}"
                    Grid.Column="1"
                    Grid.Row="5"
                    Style="{StaticResource InfoTextTheme}"/>
         
-        <TextBlock x:Name="timeWorkPC"
+        <TextBlock x:Name="IP"
                    Text=""
                    Grid.Column="1"
                    Grid.Row="6"
                    Style="{StaticResource InfoTextTheme}"/>
-        <TextBlock x:Name="IP"
-                   Text=""
-                   Grid.Column="1"
-                   Grid.Row="7"
-                   Style="{StaticResource InfoTextTheme}"/>
+        
 
 
         <Button Grid.Column="2"
                 Grid.Row="0"
-                Style="{StaticResource CopyButtonTheme}"
-                Command="{Binding OperationSystemButtonCommand}"/>
+                Style="{StaticResource CopyButtonTheme}"/>
 
         <Button Grid.Column="2"
                 Grid.Row="1"
@@ -140,9 +142,7 @@
                 Grid.Row="6"
                 Style="{StaticResource CopyButtonTheme}"/>
 
-        <Button Grid.Column="2"
-                Grid.Row="7"
-                Style="{StaticResource CopyButtonTheme}"/>
+        
 
     </Grid>
 </UserControl>
