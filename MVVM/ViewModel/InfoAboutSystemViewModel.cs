@@ -28,6 +28,7 @@ namespace Twixer.MVVM.ViewModel
         private string _buffRAM;
         private string _buffGPU;
         private string _buffTimeOfWork;
+        private string _buffIPAddress;
 
 
         public string OperationSystem
@@ -90,6 +91,16 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
+        public string IPAddress
+        {
+            get => _buffIPAddress;
+            set
+            {
+                _buffIPAddress = value;
+                OnPropertyChanged(nameof(IPAddress));
+            }
+        }
+
 
 
         public DelegateCommand GetOperationSystemCommand { get; set; }
@@ -98,6 +109,7 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand GetRAMCommand { get; set; }
         public DelegateCommand GetGPUCommand { get; set; }
         public DelegateCommand GetTimeOfWorkCommand { get; set; }
+        public DelegateCommand GetIPAddressCommand { get; set; }
 
 
         private void GetOperationSystem()
@@ -128,6 +140,10 @@ namespace Twixer.MVVM.ViewModel
         {
             TimeOfWork = new InfoAboutSystemModel().GetTimeOfWorkInfo();
         }
+        private void GetIPAddress()
+        {
+            IPAddress = new InfoAboutSystemModel().GetIPAddressInfo();
+        }
 
         public InfoAboutSystemViewModel()
         {
@@ -139,6 +155,7 @@ namespace Twixer.MVVM.ViewModel
             GetRAMCommand= new DelegateCommand(() => GetRAM());
             GetGPUCommand= new DelegateCommand(() => GetGPU());
             GetTimeOfWorkCommand=new DelegateCommand(() => GetTimeOfWork());
+            GetIPAddressCommand = new DelegateCommand(() => GetIPAddress());
 
 
             GetOperationSystem();
@@ -147,6 +164,7 @@ namespace Twixer.MVVM.ViewModel
             GetRAM();
             GetGPU();
             GetTimeOfWork();
+            GetIPAddress();
 
         } 
 

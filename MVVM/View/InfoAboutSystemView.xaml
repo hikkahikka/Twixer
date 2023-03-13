@@ -52,14 +52,10 @@
                    Grid.Row="4"
                    Style="{StaticResource LabelInfoTextTheme}"/>
 
-        
-
         <TextBlock Text = "Время работы компьютера: " 
                    Grid.Column="0"
                    Grid.Row="5"
                    Style="{StaticResource LabelInfoTextTheme}"/>
-
-
 
         <TextBlock Text = "IP адрес: " 
                    Grid.Column="0"
@@ -107,7 +103,7 @@
                    Style="{StaticResource InfoTextTheme}"/>
         
         <TextBlock x:Name="IP"
-                   Text=""
+                   Text="{Binding IPAddress}"
                    Grid.Column="1"
                    Grid.Row="6"
                    Style="{StaticResource InfoTextTheme}"/>
