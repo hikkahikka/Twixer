@@ -14,16 +14,18 @@
                     Style="{StaticResource HelpingButtonTheme}"/>
         </StackPanel>
         <CheckBox Content="Отключить уведомление о безопастности от Центра уведомлений"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
-
-        <CheckBox Content="Отключить предупреждение при запуске любых файлов .exe"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableSecurityNotificationCommand}"
+                  IsChecked="{Binding ChekedDisableSecurityNotification}"/>
+      
 
         <CheckBox Content="Отключить Защитник Windows и SmartScreen"
                      Style="{StaticResource ListCheckBoxTheme}"/>
 
         <CheckBox Content="Отключить UAC (Контроль учетных записей)"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                     Style="{StaticResource ListCheckBoxTheme}"
+                     Command="{Binding CheckBoxDisableUACCommand}"
+                     IsChecked="{Binding ChekedDisableUAC}"/>
 
         <CheckBox Content="Отключить диагностику памяти"
                      Style="{StaticResource ListCheckBoxTheme}"/>
@@ -36,7 +38,9 @@
         
         <CheckBox Content="Удаление OneDrive и всего, что с ним связано"
                      Style="{StaticResource ListCheckBoxTheme}"/>
-
+        
+        <CheckBox Content="Отключение диспетчера задач"
+                     Style="{StaticResource ListCheckBoxTheme}"/>
 
 
     </StackPanel>

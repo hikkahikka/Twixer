@@ -1,0 +1,55 @@
+﻿using Microsoft.Win32;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows;
+
+namespace Twixer.MVVM.Model
+{
+    internal class SystemModel
+    {
+        public void DisableSecurityNotification(int value)
+        {
+            int vkl = value; //- увед           
+            RegistryKey myKey = Registry.CurrentUser;
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+
+            try
+            {
+
+                RegistryKey newKey = wKey.CreateSubKey("Explorer");
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true);
+                curKey.SetValue("DisableNotificationCenter", vkl, RegistryValueKind.DWord);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+            }
+            finally
+            {
+                myKey.Close();
+            }
+
+        }
+
+        public void DisableUAC(int value)
+        {
+            //C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+            Process process = Process.Start(new ProcessStartInfo
+            {
+                FileName = "cmd",
+                Arguments = $@"C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d {value} /f",
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+
+            });
+        }
+    }
+}

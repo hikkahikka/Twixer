@@ -24,7 +24,7 @@
         <Grid>
             
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="260"/>
                 <ColumnDefinition/>
                 
 
@@ -74,7 +74,7 @@
                 Style="{StaticResource MenuButtonTheme}"
                 Command="{Binding DefoltAppsCommand}"/>
                 
-                <RadioButton Content="Прочее"
+                <RadioButton Content="Установка приложений"
                 Style="{StaticResource MenuButtonTheme}"/>
 
             </StackPanel>

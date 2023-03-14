@@ -129,6 +129,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\SystemModel.cs" />
     <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
     <Compile Include="MVVM\ViewModel\DefoltAppsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />
