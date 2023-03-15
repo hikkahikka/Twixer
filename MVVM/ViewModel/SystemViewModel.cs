@@ -79,7 +79,7 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand CheckBoxDisableDefenderWindowsCommand { get; set; }
         public DelegateCommand CheckBoxDisableTaskManagerCommand { get; set; }
 
-
+        //public DelegateCommand ButtonRSTRUICommand { get; set; }
 
         public void OnCheckBoxDisableSecurityNotificationPress()
         {         
@@ -101,12 +101,18 @@ namespace Twixer.MVVM.ViewModel
             new SystemModel().DisableTaskManager(Convert.ToInt32(CheckedDisableTaskManager));
         }
 
+        //public void OnButtonRSTRUIPress()
+        //{
+        //    new SystemModel().CreateRSTRUI();
+        //}
+
         public SystemViewModel()
         {
             CheckBoxDisableSecurityNotificationCommand = new DelegateCommand(() => OnCheckBoxDisableSecurityNotificationPress());
             CheckBoxDisableUACCommand = new DelegateCommand(() => OnCheckBoxDisableUACPress());
             CheckBoxDisableDefenderWindowsCommand = new DelegateCommand(() => OnCheckBoxDisableDefenderWindowsPress());
             CheckBoxDisableTaskManagerCommand = new DelegateCommand(() => OnCheckBoxDisableTaskManagerPress());
+            //ButtonRSTRUICommand = new DelegateCommand(() => OnButtonRSTRUIPress());
 
         }
 

@@ -12,6 +12,10 @@
                     Style="{StaticResource HelpingButtonTheme}"/>
             <Button Content="Вернуть все значения по умолчанию"
                     Style="{StaticResource HelpingButtonTheme}"/>
+            <!--<Button Content="Вернуться к последней точке восстановления"
+                    Style="{StaticResource HelpingButtonTheme}"
+                    Command="{Binding ButtonRSTRUICommand}"/>-->
+            
         </StackPanel>
         <CheckBox Content="Отключить уведомление о безопастности от Центра уведомлений"
                   Style="{StaticResource ListCheckBoxTheme}"
