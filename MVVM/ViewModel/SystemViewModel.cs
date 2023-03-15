@@ -22,33 +22,53 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        private bool _buffChekedDisableSecurityNotification;
+        private bool _buffCheckedDisableSecurityNotification;
+        private bool _buffCheckedDisableDefenderWindows;
+        private bool _buffCheckedDisableUAC;
+        private bool _buffCheckedDisableTaskManager;
 
-        private bool _buffChekedDisableUAC;
-
-
-        public bool ChekedDisableSecurityNotification
+        public bool CheckedDisableSecurityNotification
         {
-            get => _buffChekedDisableSecurityNotification;
+            get => _buffCheckedDisableSecurityNotification;
             set
             {
-                _buffChekedDisableSecurityNotification = value;
-                OnPropertyChanged(nameof(ChekedDisableSecurityNotification));
+                _buffCheckedDisableSecurityNotification = value;
+                OnPropertyChanged(nameof(CheckedDisableSecurityNotification));
             }
         }
 
-        public bool ChekedDisableUAC
+        public bool CheckedDisableDefenderWindows
         {
-            get=> _buffChekedDisableUAC;
+            get => _buffCheckedDisableDefenderWindows;
             set
             {
-                _buffChekedDisableUAC = value;
-                OnPropertyChanged(nameof(_buffChekedDisableUAC));
+                _buffCheckedDisableDefenderWindows = value;
+                OnPropertyChanged(nameof(CheckedDisableDefenderWindows));
+
             }
         }
 
 
+        public bool CheckedDisableUAC
+        {
+            get=> _buffCheckedDisableUAC;
+            set
+            {
+                _buffCheckedDisableUAC = value;
+                OnPropertyChanged(nameof(_buffCheckedDisableUAC));
+            }
+        }
 
+
+        public bool CheckedDisableTaskManager
+        {
+            get => _buffCheckedDisableTaskManager;
+            set
+            {
+                _buffCheckedDisableTaskManager = value;
+                OnPropertyChanged(nameof(CheckedDisableTaskManager));
+            }
+        }
 
 
 
@@ -56,25 +76,38 @@ namespace Twixer.MVVM.ViewModel
 
         public DelegateCommand CheckBoxDisableSecurityNotificationCommand { get; set; }
         public DelegateCommand CheckBoxDisableUACCommand { get; set; }
+        public DelegateCommand CheckBoxDisableDefenderWindowsCommand { get; set; }
+        public DelegateCommand CheckBoxDisableTaskManagerCommand { get; set; }
 
 
 
         public void OnCheckBoxDisableSecurityNotificationPress()
         {         
-            new SystemModel().DisableSecurityNotification(Convert.ToInt32(ChekedDisableSecurityNotification));
+            new SystemModel().DisableSecurityNotification(Convert.ToInt32(CheckedDisableSecurityNotification));
+        }
+
+        public void OnCheckBoxDisableDefenderWindowsPress()
+        {
+            new SystemModel().DisableDefenderWindows(Convert.ToInt32(CheckedDisableDefenderWindows));
         }
 
         public void OnCheckBoxDisableUACPress()
         {
-            new SystemModel().DisableUAC(Convert.ToInt32(ChekedDisableUAC));
+            new SystemModel().DisableUAC(Convert.ToInt32(CheckedDisableUAC));
         }
 
-
+        public void OnCheckBoxDisableTaskManagerPress()
+        {
+            new SystemModel().DisableTaskManager(Convert.ToInt32(CheckedDisableTaskManager));
+        }
 
         public SystemViewModel()
         {
             CheckBoxDisableSecurityNotificationCommand = new DelegateCommand(() => OnCheckBoxDisableSecurityNotificationPress());
             CheckBoxDisableUACCommand = new DelegateCommand(() => OnCheckBoxDisableUACPress());
+            CheckBoxDisableDefenderWindowsCommand = new DelegateCommand(() => OnCheckBoxDisableDefenderWindowsPress());
+            CheckBoxDisableTaskManagerCommand = new DelegateCommand(() => OnCheckBoxDisableTaskManagerPress());
+
         }
 
         

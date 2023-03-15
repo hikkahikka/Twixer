@@ -16,7 +16,7 @@ namespace Twixer.MVVM.Model
     {
         public void DisableSecurityNotification(int value)
         {
-            int vkl = value; //- увед           
+                   
             RegistryKey myKey = Registry.CurrentUser;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
 
@@ -25,7 +25,7 @@ namespace Twixer.MVVM.Model
 
                 RegistryKey newKey = wKey.CreateSubKey("Explorer");
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true);
-                curKey.SetValue("DisableNotificationCenter", vkl, RegistryValueKind.DWord);
+                curKey.SetValue("DisableNotificationCenter", value, RegistryValueKind.DWord);
             }
             catch (Exception e)
             {
@@ -38,18 +38,76 @@ namespace Twixer.MVVM.Model
 
         }
 
-        public void DisableUAC(int value)
+
+
+
+        public void DisableDefenderWindows(int value)
         {
-            //C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+            
             Process process = Process.Start(new ProcessStartInfo
             {
+                
                 FileName = "cmd",
-                Arguments = $@"C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d {value} /f",
+                Arguments = $"powershell.exe - command \"Set-MpPreference -DisableRealtimeMonitoring ${Convert.ToBoolean(value)} \"",
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
 
             });
         }
+
+
+
+        public void DisableUAC(int value)
+        {
+            
+            //C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
+            Process process = Process.Start(new ProcessStartInfo
+            {
+                FileName = "cmd",
+                Arguments = $@"C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d {Convert.ToInt32(!Convert.ToBoolean(value))} /f",
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+
+            });
+        }
+
+
+
+
+        public void DisableTaskManager(int value)
+        {
+            
+            
+            
+            RegistryKey myKey = Registry.CurrentUser;
+
+          
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", true);
+
+            try
+            {
+                
+                RegistryKey newKey = wKey.CreateSubKey("System");
+               
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
+                curKey.SetValue("DisableTaskMgr", value, RegistryValueKind.DWord);
+                Console.WriteLine("СЛАВА БОГУ  ПРОВОДНИКУ");
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey.Close();
+            }
+        }
+
+
+
+
     }
 }

@@ -16,16 +16,18 @@
         <CheckBox Content="Отключить уведомление о безопастности от Центра уведомлений"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableSecurityNotificationCommand}"
-                  IsChecked="{Binding ChekedDisableSecurityNotification}"/>
+                  IsChecked="{Binding CheckedDisableSecurityNotification}"/>
       
 
-        <CheckBox Content="Отключить Защитник Windows и SmartScreen"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+        <CheckBox Content="Отключить Защитник Windows"
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableDefenderWindowsCommand}"
+                  IsChecked="{Binding CheckedDisableDefenderWindows}"/>
 
         <CheckBox Content="Отключить UAC (Контроль учетных записей)"
                      Style="{StaticResource ListCheckBoxTheme}"
                      Command="{Binding CheckBoxDisableUACCommand}"
-                     IsChecked="{Binding ChekedDisableUAC}"/>
+                     IsChecked="{Binding CheckedDisableUAC}"/>
 
         <CheckBox Content="Отключить диагностику памяти"
                      Style="{StaticResource ListCheckBoxTheme}"/>
@@ -40,7 +42,9 @@
                      Style="{StaticResource ListCheckBoxTheme}"/>
         
         <CheckBox Content="Отключение диспетчера задач"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableTaskManagerCommand}"
+                  IsChecked="{Binding CheckedDisableTaskManager}"/>
 
 
     </StackPanel>
