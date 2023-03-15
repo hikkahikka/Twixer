@@ -32,23 +32,23 @@
         </Grid.RowDefinitions>
 
 
-        <TextBlock Text="Наведите на кнопку с нужным приложение, чтобы прочитать его описание"
+        <!--<TextBlock Text="Наведите на кнопку с нужным приложение, чтобы прочитать его описание"
                    Grid.Column="0"
                    Grid.Row="0"
                    FontSize="14"
                    TextWrapping="Wrap"
                    FontStyle="Italic"
-                   LineHeight="1"/>
+                   LineHeight="1"/>-->
         
         <Button Content="Удалить выбранное"
                     Style="{StaticResource HelpingButtonTheme}"
                     Grid.Column="1"
                     Grid.Row="0"/>
         
-        <CheckBox Content="Microsoft Edge"
+        <!--<CheckBox Content="Microsoft Edge"
                      Style="{StaticResource ListCheckBoxTheme}"
                     Grid.Column="0"
-                    Grid.Row="1"/>
+                    Grid.Row="1"/>-->
 
         <CheckBox Content="Microsoft Store"
                      Style="{StaticResource ListCheckBoxTheme}"
