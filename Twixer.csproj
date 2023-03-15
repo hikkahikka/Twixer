@@ -83,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\InstallAppsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MVVM\View\DefoltAppsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -129,14 +133,20 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MVVM\Model\InstallAppsModel.cs" />
+    <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\DefoltAppsModel.cs" />
     <Compile Include="MVVM\Model\SystemModel.cs" />
     <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
+    <Compile Include="MVVM\ViewModel\InstallAppsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\DefoltAppsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\InfoAboutSystemViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\ViewModel\PrivacyViewModel.cs" />
+    <Compile Include="MVVM\View\InstallAppsView.xaml.cs">
+      <DependentUpon>InstallAppsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\DefoltAppsView.xaml.cs">
       <DependentUpon>DefoltAppsView.xaml</DependentUpon>
     </Compile>
@@ -175,10 +185,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Helping\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
   </ItemGroup>

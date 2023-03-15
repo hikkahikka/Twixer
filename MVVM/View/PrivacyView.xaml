@@ -28,9 +28,6 @@
         <CheckBox Content="Отключение сбора и обработки Журнала Событий"
                      Style="{StaticResource ListCheckBoxTheme}"/>
 
-        <CheckBox Content="Отключение &quot;защитника&quot; Windows"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
-
         <CheckBox Content="Отключение сбора статистики о приложениях"
                      Style="{StaticResource ListCheckBoxTheme}"/>
 

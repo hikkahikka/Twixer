@@ -14,21 +14,17 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Twixer.MVVM.ViewModel;
 
-namespace Twixer
+namespace Twixer.MVVM.View
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для InterfaceView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class InstallAppsView : UserControl
     {
-        public MainWindow()
+        public InstallAppsView()
         {
             InitializeComponent();
-            DataContext = new MainViewModel();
-            
+            DataContext = new InstallAppsViewModel();
         }
-
-
-
     }
 }

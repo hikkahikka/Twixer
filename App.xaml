@@ -38,6 +38,10 @@
                 <view:DefoltAppsView/>
             </DataTemplate>
 
+            <DataTemplate DataType="{x:Type viewModel:InstallAppsViewModel}">
+                <view:InstallAppsView/>
+            </DataTemplate>
+
         </ResourceDictionary>
         
     </Application.Resources>
