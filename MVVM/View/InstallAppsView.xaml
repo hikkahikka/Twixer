@@ -50,8 +50,18 @@
                 Grid.Column="2"
                 Grid.Row="0"
                 Command="{Binding PythonInstallCommand}"/>
-        
 
+        <Button Content="Компас-3D"
+                Style="{StaticResource HelpingButtonTheme}"
+                Grid.Column="0"
+                Grid.Row="1"
+                Command="{Binding KompasInstallCommand}"/>
+
+        <Button Content="Scratch"
+                Style="{StaticResource HelpingButtonTheme}"
+                Grid.Column="1"
+                Grid.Row="1"
+                Command="{Binding ScratchInstallCommand}"/>
     </Grid>
 
 </UserControl>

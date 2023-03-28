@@ -20,6 +20,10 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand PascalInstallCommand { get; set; }
         public DelegateCommand PythonInstallCommand { get; set; }
         public DelegateCommand KuMirInstallCommand { get; set; }
+        public DelegateCommand KompasInstallCommand { get; set; }
+        public DelegateCommand ScratchInstallCommand { get; set; }
+
+
 
 
 
@@ -38,11 +42,23 @@ namespace Twixer.MVVM.ViewModel
             new InstallAppsModel().InstallKuMir();
         }
 
+        public void OnKompasInstallButtonPress()
+        {
+            new InstallAppsModel().InstallKompas();
+        }
+
+        public void OnScratchInstallButtonPress()
+        {
+            new InstallAppsModel().InstallScratch();
+        }
+
         public InstallAppsViewModel()
         {
             PascalInstallCommand = new DelegateCommand(() => OnPascalInstallButtonPress());
             PythonInstallCommand = new DelegateCommand(() => OnPythonInstallButtonPress());
             KuMirInstallCommand = new DelegateCommand(() => OnKuMirInstallButtonPress());
+            KompasInstallCommand = new DelegateCommand(() => OnKompasInstallButtonPress());
+            ScratchInstallCommand = new DelegateCommand(() => OnScratchInstallButtonPress());
 
 
         }

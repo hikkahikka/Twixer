@@ -31,6 +31,18 @@ namespace Twixer.MVVM.Model
             System.Diagnostics.Process.Start(@"https://www.niisi.ru/kumir/kumir2-2.1.0-rc11-install.exe");
 
         }
+
+        public void InstallKompas()
+        {
+            System.Diagnostics.Process.Start(@"https://s10887.cdn.ngenix.net/download/sduser371/KOMPAS/v21/x64/KOMPAS-3D_Viewer_v21_x64.zip");
+
+        }
+
+        public void InstallScratch()
+        {
+            System.Diagnostics.Process.Start(@"https://downloads.scratch.mit.edu/desktop/Scratch%20Setup.exe");
+
+        }
     }
        
     
