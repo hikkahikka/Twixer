@@ -13,13 +13,13 @@
         Background="Transparent"
         WindowStyle="None"
         ResizeMode="NoResize"
-        Icon="Images/icon.ico">
+        Icon="Images/icon.ico"
+        MouseDown="MovingWin">
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#F4BCF5"
-            CornerRadius="20">
+    <Border Background="#F4BCF5">
 
         <Grid>
             
@@ -40,8 +40,9 @@
                        HorizontalAlignment="Center"
                        FontWeight="Bold"
                        FontSize="22"/>
+            
             <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Right" Width="100">
-
+                
                 <Button Content="—" 
                         FontWeight="ExtraBold"
                         Style="{StaticResource NavigationButtonTheme}"
@@ -53,7 +54,7 @@
                         />
             </StackPanel>
 
-            <StackPanel Grid.Row="1" Background="#F4B3F5">
+            <StackPanel Grid.Row="1" Background="#F4B3F5" >
                 <RadioButton Content="Конфиденциальность"
                 Style="{StaticResource MenuButtonTheme}"
                 IsChecked="True"

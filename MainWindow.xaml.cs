@@ -28,7 +28,12 @@ namespace Twixer
             
         }
 
-
+        private void MovingWin(object sender, RoutedEventArgs e)
+        {
+            
+            this.DragMove();
+            
+        }
 
     }
 }

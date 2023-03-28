@@ -32,7 +32,7 @@ namespace Twixer.MVVM.ViewModel
 
         public DelegateCommand OnTurnButtonClickCommand { get; set; }
 
-       // public DelegateCommand MousePressedToMovingCommand { get; set; }
+        //public DelegateCommand MousePressedToMovingCommand { get; set; }
 
 
 
