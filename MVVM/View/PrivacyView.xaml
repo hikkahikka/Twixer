@@ -26,9 +26,10 @@
                   IsChecked="{Binding CheckedDisableDeleteOneDrive}"
                   IsEnabled="{Binding  IsEnableDeteleOneDrive}"/>
 
-        <CheckBox Content="Отключение обновления Windows (только для PRO версии)"
+        <CheckBox Content="Отключение обновления Windows"
                   Style="{StaticResource ListCheckBoxTheme}"
-                  />
+                  Command="{Binding CheckBoxDisableUpdatesCommand}"
+                  IsChecked="{Binding CheckedDisableUpdates}"/>
 
         <CheckBox Content="Отключение сбора и обработки Журнала Событий"
                      Style="{StaticResource ListCheckBoxTheme}"

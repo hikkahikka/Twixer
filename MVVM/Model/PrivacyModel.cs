@@ -90,5 +90,30 @@ namespace Twixer.MVVM.Model
             });
            
         }
+
+        public void DisableUpdates(int value)
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+
+            try
+            {
+
+                RegistryKey windowsUpdate = wKey.CreateSubKey("WindowsUpdate");
+                RegistryKey setupLog = windowsUpdate.CreateSubKey("AU");
+
+
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU", true);
+                curKey.SetValue("NoAutoUpdate", value, RegistryValueKind.DWord);
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                myKey.Close();
+            }
+        }
     }
+    
 }

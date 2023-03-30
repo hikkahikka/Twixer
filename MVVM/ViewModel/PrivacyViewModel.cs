@@ -24,7 +24,7 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableMicrosoftTelemetry;
         private bool _buffCheckedDisableDeteleOneDrive;
         private bool _buffCheckedDisableEventLogProcessing;
-
+        private bool _buffCheckedDisableUpdates;
 
 
 
@@ -32,8 +32,6 @@ namespace Twixer.MVVM.ViewModel
 
 
         private bool _buffIsEnableDeleteOneDrive = true;
-
-
 
         public bool IsEnableDeteleOneDrive
         {
@@ -83,14 +81,22 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CheckedDisableEventLogProcessing));
             }
         }
-
+        public bool CheckedDisableUpdates
+        {
+            get => _buffCheckedDisableUpdates;
+            set
+            {
+                _buffCheckedDisableUpdates = value;
+                OnPropertyChanged(nameof(CheckedDisableUpdates));
+            }
+        }
 
 
 
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
         public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
         public DelegateCommand CheckBoxDisableEventLogProcessingCommand { get; set; }
-
+        public DelegateCommand CheckBoxDisableUpdatesCommand { get; set; }
 
 
 
@@ -99,7 +105,6 @@ namespace Twixer.MVVM.ViewModel
             new PrivacyModel().DisableMicrosoftTelemetry(Convert.ToInt32(CheckedDisableMicrosoftTelemetry));
 
         }
-
 
         public void OnCheckBoxDisableDeleteOneDrivePress()
         {
@@ -113,6 +118,10 @@ namespace Twixer.MVVM.ViewModel
 
         }
 
+        public void OnCheckBoxDisableUpdatesPress()
+        {
+            new PrivacyModel().DisableUpdates(Convert.ToInt32(CheckedDisableUpdates));
+        }
 
 
 
@@ -122,6 +131,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableMicrosoftTelemetryCommand = new DelegateCommand(() => OnCheckBoxDisableMicrosoftTelemetryPress());
             CheckBoxDisableDeleteOneDriveCommand = new DelegateCommand(() => OnCheckBoxDisableDeleteOneDrivePress());
             CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
+            CheckBoxDisableUpdatesCommand = new DelegateCommand(()=>OnCheckBoxDisableUpdatesPress());
 
         }
 
