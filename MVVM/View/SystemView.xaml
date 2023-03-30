@@ -42,8 +42,7 @@
         <CheckBox Content="Увеличить кэш файловой системы"
                      Style="{StaticResource ListCheckBoxTheme}"/>
         
-        <CheckBox Content="Удаление OneDrive и всего, что с ним связано"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+        
         
         <CheckBox Content="Отключение диспетчера задач"
                   Style="{StaticResource ListCheckBoxTheme}"

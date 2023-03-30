@@ -36,6 +36,23 @@ namespace Twixer.MVVM.Model
                 wKey.Close();
             }
 
+            
+        }
+
+        public void DisableDeleteOneDrive()
+        {
+
+            Process process = Process.Start(new ProcessStartInfo
+            {
+
+                FileName = "cmd",
+                Arguments = @$"/uninstall %SystemRoot%\SysWOW64\OneDriveSetup.exe",
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+
+            });
+            
 
         }
 

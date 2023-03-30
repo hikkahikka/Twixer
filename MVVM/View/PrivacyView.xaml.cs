@@ -28,5 +28,7 @@ namespace Twixer.MVVM.View
             InitializeComponent();
             DataContext = new PrivacyViewModel();
         }
+
+
     }
 }

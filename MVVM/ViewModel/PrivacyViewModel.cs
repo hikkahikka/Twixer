@@ -18,12 +18,24 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
+
+
+
         private bool _buffCheckedDisableMicrosoftTelemetry;
+        private bool _buffCheckedDisableDeteleOneDrive;
+        private bool _buffIsEnableDeleteOneDrive = true;
+        public bool IsEnableDeteleOneDrive
+        {
 
+            get => _buffIsEnableDeleteOneDrive;
+            set
+            {
+                _buffIsEnableDeleteOneDrive = value;
+                OnPropertyChanged(nameof(IsEnableDeteleOneDrive));
+            }
 
-
-
-
+        }
+        
         public bool CheckedDisableMicrosoftTelemetry
         {
             get => _buffCheckedDisableMicrosoftTelemetry;
@@ -31,6 +43,17 @@ namespace Twixer.MVVM.ViewModel
             {
                 _buffCheckedDisableMicrosoftTelemetry = value;
                 OnPropertyChanged(nameof(CheckedDisableMicrosoftTelemetry));
+                
+            }
+        }
+
+        public bool CheckedDisableDeleteOneDrive
+        {
+            get => _buffCheckedDisableDeteleOneDrive;
+            set
+            {
+                _buffCheckedDisableDeteleOneDrive= value;
+                OnPropertyChanged(nameof(CheckedDisableDeleteOneDrive));
             }
         }
 
@@ -38,11 +61,8 @@ namespace Twixer.MVVM.ViewModel
 
 
 
-
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
-
-
-
+        public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
 
 
 
@@ -51,10 +71,15 @@ namespace Twixer.MVVM.ViewModel
         public void OnCheckBoxDisableMicrosoftTelemetryPress()
         {
             new PrivacyModel().DisableMicrosoftTelemetry(Convert.ToInt32(CheckedDisableMicrosoftTelemetry));
+
         }
 
 
-
+        public void OnCheckBoxDisableDeleteOneDrivePress()
+        {
+            new PrivacyModel().DisableDeleteOneDrive();
+            IsEnableDeteleOneDrive=false;
+        }
 
 
 
@@ -64,7 +89,8 @@ namespace Twixer.MVVM.ViewModel
         public PrivacyViewModel()
         {
             CheckBoxDisableMicrosoftTelemetryCommand = new DelegateCommand(() => OnCheckBoxDisableMicrosoftTelemetryPress());
-            
+            CheckBoxDisableDeleteOneDriveCommand = new DelegateCommand(() => OnCheckBoxDisableDeleteOneDrivePress());
+
 
         }
 

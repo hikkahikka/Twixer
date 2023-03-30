@@ -18,12 +18,13 @@
                   Command="{Binding CheckBoxDisableMicrosoftTelemetryCommand}"
                   IsChecked="{Binding CheckedDisableMicrosoftTelemetry}"
                   />
-        
-        <CheckBox Content="Отключение сбора и отправки рукописного ввода"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
 
-        <CheckBox Content="Отключение синхронизации Windows"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+
+        <CheckBox Content="Удаление OneDrive и всего, что с ним связано (тест)"
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableDeleteOneDriveCommand}"
+                  IsChecked="{Binding CheckedDisableDeleteOneDrive}"
+                  IsEnabled="{Binding  IsEnableDeteleOneDrive}"/>
 
         <CheckBox Content="Отключение обновления Windows"
                      Style="{StaticResource ListCheckBoxTheme}"/>
