@@ -55,7 +55,7 @@ namespace Twixer.MVVM.ViewModel
             set
             {
                 _buffCheckedDisableUAC = value;
-                OnPropertyChanged(nameof(_buffCheckedDisableUAC));
+                OnPropertyChanged(nameof(CheckedDisableUAC));
             }
         }
 

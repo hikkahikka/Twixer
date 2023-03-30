@@ -14,7 +14,10 @@
                     Style="{StaticResource HelpingButtonTheme}"/>
         </StackPanel>
         <CheckBox Content="Отключение телеметрии от Microsoft"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableMicrosoftTelemetryCommand}"
+                  IsChecked="{Binding CheckedDisableMicrosoftTelemetry}"
+                  />
         
         <CheckBox Content="Отключение сбора и отправки рукописного ввода"
                      Style="{StaticResource ListCheckBoxTheme}"/>

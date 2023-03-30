@@ -98,6 +98,8 @@ namespace Twixer.MVVM.ViewModel
             OnCloseButtonClickCommand = new DelegateCommand(() => Application.Current.Shutdown());
             OnTurnButtonClickCommand = new DelegateCommand(() => Application.Current.MainWindow.WindowState = WindowState.Minimized);
 
+            
+
         }
         
     }

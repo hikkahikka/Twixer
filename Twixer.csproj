@@ -136,6 +136,7 @@
     <Compile Include="MVVM\Model\InstallAppsModel.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\DefoltAppsModel.cs" />
+    <Compile Include="MVVM\Model\PrivacyModel.cs" />
     <Compile Include="MVVM\Model\SystemModel.cs" />
     <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
     <Compile Include="MVVM\ViewModel\InstallAppsViewModel.cs" />

@@ -16,7 +16,7 @@ namespace Twixer.MVVM.Model
     {
         public void DisableSecurityNotification(int value)
         {
-                   
+
             RegistryKey myKey = Registry.CurrentUser;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
 
@@ -35,6 +35,7 @@ namespace Twixer.MVVM.Model
             {
                 myKey.Close();
             }
+
 
         }
 
