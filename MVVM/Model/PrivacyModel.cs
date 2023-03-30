@@ -72,6 +72,8 @@ namespace Twixer.MVVM.Model
             }
             catch (Exception e)
             {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
             }
             finally
             {
@@ -108,10 +110,67 @@ namespace Twixer.MVVM.Model
             }
             catch (Exception e)
             {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
             }
             finally
             {
                 myKey.Close();
+            }
+        }
+
+        public void DisableCollectionHandwrittenInput(int value)
+        {
+            RegistryKey myKey = Registry.CurrentUser;
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
+
+            try
+            {
+
+                RegistryKey windowsUpdate = wKey.CreateSubKey("InputPersonalization");
+                
+
+
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
+                curKey.SetValue("RestrictImplicitTextCollection", value, RegistryValueKind.DWord);
+                curKey.SetValue("RestrictImplicitInkCollection", value, RegistryValueKind.DWord);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey.Close();
+            }
+
+
+
+
+
+            RegistryKey myKey2 = Registry.LocalMachine;
+
+            RegistryKey wKey2 = myKey2.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+
+            try
+            {
+
+                RegistryKey newKey2 = wKey2.CreateSubKey("HandwritingErrorReports");
+
+                RegistryKey curKey2 = myKey2.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\HandwritingErrorReports", true);
+                curKey2.SetValue("PreventHandwritingErrorReports", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey2.Close();
             }
         }
     }

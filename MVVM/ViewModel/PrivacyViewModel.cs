@@ -25,7 +25,7 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableDeteleOneDrive;
         private bool _buffCheckedDisableEventLogProcessing;
         private bool _buffCheckedDisableUpdates;
-
+        private bool _buffCheckedDisableCollectionHandwrittenInput;
 
 
 
@@ -91,13 +91,21 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-
+        public bool CheckedDisableCollectionHandwrittenInput
+        {
+            get=> _buffCheckedDisableCollectionHandwrittenInput;
+            set
+            {
+                _buffCheckedDisableCollectionHandwrittenInput = value;
+                OnPropertyChanged(nameof(CheckedDisableCollectionHandwrittenInput));
+            }
+        }
 
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
         public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
         public DelegateCommand CheckBoxDisableEventLogProcessingCommand { get; set; }
         public DelegateCommand CheckBoxDisableUpdatesCommand { get; set; }
-
+        public DelegateCommand CheckBoxDisableCollectionHandwrittenInputCommand { get; set; }
 
 
         public void OnCheckBoxDisableMicrosoftTelemetryPress()
@@ -123,7 +131,10 @@ namespace Twixer.MVVM.ViewModel
             new PrivacyModel().DisableUpdates(Convert.ToInt32(CheckedDisableUpdates));
         }
 
-
+        public void OnCheckBoxDisableCollectionHandwrittenInputPress()
+        {
+            new PrivacyModel().DisableCollectionHandwrittenInput(Convert.ToInt32(CheckedDisableCollectionHandwrittenInput));
+        }
 
 
         public PrivacyViewModel()
@@ -132,7 +143,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableDeleteOneDriveCommand = new DelegateCommand(() => OnCheckBoxDisableDeleteOneDrivePress());
             CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
             CheckBoxDisableUpdatesCommand = new DelegateCommand(()=>OnCheckBoxDisableUpdatesPress());
-
+            CheckBoxDisableCollectionHandwrittenInputCommand = new DelegateCommand(()=>OnCheckBoxDisableCollectionHandwrittenInputPress());
         }
 
 

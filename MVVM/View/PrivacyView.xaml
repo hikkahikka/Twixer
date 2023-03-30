@@ -36,8 +36,10 @@
                   Command="{Binding CheckBoxDisableEventLogProcessingCommand}"
                   IsChecked="{Binding CheckedDisableEventLogProcessing}"/>
 
-        <CheckBox Content="Отключение сбора статистики о приложениях"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+        <CheckBox Content="Отключение сбора сбора и отправки рукописного ввода"
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableCollectionHandwrittenInputCommand}"
+                  IsChecked="{Binding CheckedDisableCollectionHandwrittenInput}"/>
 
 
 
