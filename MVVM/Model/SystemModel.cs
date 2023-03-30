@@ -49,15 +49,15 @@ namespace Twixer.MVVM.Model
             {
                 
                 FileName = "cmd",
-                Arguments = $"powershell.exe - command \"Set-MpPreference -DisableRealtimeMonitoring ${Convert.ToBoolean(value)} \"",
+                Arguments = $"powershell.exe -command \"Set-MpPreference -DisableRealtimeMonitoring ${Convert.ToBoolean(value)} \"",
                 CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
 
             });
         }
-
-
+        
+        
 
         public void DisableUAC(int value)
         {
@@ -73,7 +73,7 @@ namespace Twixer.MVVM.Model
 
             });
         }
-
+        
 
 
 
@@ -94,7 +94,7 @@ namespace Twixer.MVVM.Model
                
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
                 curKey.SetValue("DisableTaskMgr", value, RegistryValueKind.DWord);
-                Console.WriteLine("СЛАВА БОГУ  ПРОВОДНИКУ");
+                
             }
             catch (Exception e)
             {

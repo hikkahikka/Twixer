@@ -20,17 +20,20 @@
                   />
 
 
-        <CheckBox Content="Удаление OneDrive и всего, что с ним связано (тест)"
+        <CheckBox Content="Удаление OneDrive и всего, что с ним связано"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableDeleteOneDriveCommand}"
                   IsChecked="{Binding CheckedDisableDeleteOneDrive}"
                   IsEnabled="{Binding  IsEnableDeteleOneDrive}"/>
 
-        <CheckBox Content="Отключение обновления Windows"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+        <CheckBox Content="Отключение обновления Windows (только для PRO версии)"
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  />
 
         <CheckBox Content="Отключение сбора и обработки Журнала Событий"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                     Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableEventLogProcessingCommand}"
+                  IsChecked="{Binding CheckedDisableEventLogProcessing}"/>
 
         <CheckBox Content="Отключение сбора статистики о приложениях"
                      Style="{StaticResource ListCheckBoxTheme}"/>

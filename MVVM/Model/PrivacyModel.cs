@@ -53,8 +53,42 @@ namespace Twixer.MVVM.Model
 
             });
             
-
         }
 
+        public void DisableEventLogProcessing(int value)
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+
+            try
+            {
+
+                RegistryKey eventLog = wKey.CreateSubKey("EventLog");
+                RegistryKey setupLog = eventLog.CreateSubKey("Setup");
+
+
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
+                curKey.SetValue("Enabled", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.String);
+            }
+            catch (Exception e)
+            {
+            }
+            finally
+            {
+                myKey.Close();
+            }
+
+            Process process = Process.Start(new ProcessStartInfo
+            {
+
+                FileName = "cmd",
+                Arguments = $"powershell.exe -command \"Get-EventLog -LogName * | ForEach {{ Clear-EventLog $_.Log }}\"",
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+
+            });
+           
+        }
     }
 }

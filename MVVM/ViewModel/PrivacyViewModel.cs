@@ -23,7 +23,18 @@ namespace Twixer.MVVM.ViewModel
 
         private bool _buffCheckedDisableMicrosoftTelemetry;
         private bool _buffCheckedDisableDeteleOneDrive;
+        private bool _buffCheckedDisableEventLogProcessing;
+
+
+
+
+
+
+
         private bool _buffIsEnableDeleteOneDrive = true;
+
+
+
         public bool IsEnableDeteleOneDrive
         {
 
@@ -36,6 +47,12 @@ namespace Twixer.MVVM.ViewModel
 
         }
         
+
+
+
+
+
+
         public bool CheckedDisableMicrosoftTelemetry
         {
             get => _buffCheckedDisableMicrosoftTelemetry;
@@ -57,13 +74,22 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
+        public bool CheckedDisableEventLogProcessing
+        {
+            get => _buffCheckedDisableEventLogProcessing;
+            set
+            {
+                _buffCheckedDisableEventLogProcessing = value;
+                OnPropertyChanged(nameof(CheckedDisableEventLogProcessing));
+            }
+        }
 
 
 
 
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
         public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
-
+        public DelegateCommand CheckBoxDisableEventLogProcessingCommand { get; set; }
 
 
 
@@ -81,6 +107,11 @@ namespace Twixer.MVVM.ViewModel
             IsEnableDeteleOneDrive=false;
         }
 
+        public void OnCheckBoxDisableEventLogProcessingPress()
+        {
+            new PrivacyModel().DisableEventLogProcessing(Convert.ToInt32(CheckedDisableEventLogProcessing));
+
+        }
 
 
 
@@ -90,7 +121,7 @@ namespace Twixer.MVVM.ViewModel
         {
             CheckBoxDisableMicrosoftTelemetryCommand = new DelegateCommand(() => OnCheckBoxDisableMicrosoftTelemetryPress());
             CheckBoxDisableDeleteOneDriveCommand = new DelegateCommand(() => OnCheckBoxDisableDeleteOneDrivePress());
-
+            CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
 
         }
 
