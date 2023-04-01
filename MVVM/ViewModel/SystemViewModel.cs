@@ -26,6 +26,9 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableDefenderWindows;
         private bool _buffCheckedDisableUAC;
         private bool _buffCheckedDisableTaskManager;
+        private bool _buffCheckedDisableMemoryDiagnostics;
+
+
 
         public bool CheckedDisableSecurityNotification
         {
@@ -70,7 +73,15 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-
+        public bool CheckedDisableMemoryDiagnostics
+        {
+            get => _buffCheckedDisableMemoryDiagnostics;
+            set
+            {
+                _buffCheckedDisableMemoryDiagnostics = value;
+                OnPropertyChanged(nameof(CheckedDisableMemoryDiagnostics));
+            }
+        }
 
 
 
@@ -78,8 +89,9 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand CheckBoxDisableUACCommand { get; set; }
         public DelegateCommand CheckBoxDisableDefenderWindowsCommand { get; set; }
         public DelegateCommand CheckBoxDisableTaskManagerCommand { get; set; }
+        public DelegateCommand CheckBoxDisableMemoryDiagnosticsCommand { get; set; }
 
-        //public DelegateCommand ButtonRSTRUICommand { get; set; }
+
 
         public void OnCheckBoxDisableSecurityNotificationPress()
         {         
@@ -101,10 +113,10 @@ namespace Twixer.MVVM.ViewModel
             new SystemModel().DisableTaskManager(Convert.ToInt32(CheckedDisableTaskManager));
         }
 
-        //public void OnButtonRSTRUIPress()
-        //{
-        //    new SystemModel().CreateRSTRUI();
-        //}
+        public void OnCheckBoxDisableMemoryDiagnosticsPress()
+        {
+            new SystemModel().DisableMemoryDiagnostics(CheckedDisableMemoryDiagnostics);
+        }
 
         public SystemViewModel()
         {
@@ -112,8 +124,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableUACCommand = new DelegateCommand(() => OnCheckBoxDisableUACPress());
             CheckBoxDisableDefenderWindowsCommand = new DelegateCommand(() => OnCheckBoxDisableDefenderWindowsPress());
             CheckBoxDisableTaskManagerCommand = new DelegateCommand(() => OnCheckBoxDisableTaskManagerPress());
-            //ButtonRSTRUICommand = new DelegateCommand(() => OnButtonRSTRUIPress());
-
+            CheckBoxDisableMemoryDiagnosticsCommand = new DelegateCommand(() => OnCheckBoxDisableMemoryDiagnosticsPress());
         }
 
         

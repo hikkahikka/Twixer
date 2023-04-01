@@ -29,12 +29,14 @@
                   IsChecked="{Binding CheckedDisableDefenderWindows}"/>
 
         <CheckBox Content="Отключить UAC (Контроль учетных записей)"
-                     Style="{StaticResource ListCheckBoxTheme}"
-                     Command="{Binding CheckBoxDisableUACCommand}"
-                     IsChecked="{Binding CheckedDisableUAC}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableUACCommand}"
+                  IsChecked="{Binding CheckedDisableUAC}"/>
 
         <CheckBox Content="Отключить диагностику памяти"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableMemoryDiagnosticsCommand}"
+                  IsChecked="{Binding CheckedDisableMemoryDiagnostics}"/>
 
         <CheckBox Content="Отключить Cortana и все, что с ней связано"
                      Style="{StaticResource ListCheckBoxTheme}"/>

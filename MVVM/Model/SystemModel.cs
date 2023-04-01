@@ -39,9 +39,6 @@ namespace Twixer.MVVM.Model
 
         }
 
-
-
-
         public void DisableDefenderWindows(int value)
         {
             
@@ -56,13 +53,10 @@ namespace Twixer.MVVM.Model
 
             });
         }
-        
-        
 
         public void DisableUAC(int value)
         {
             
-            //C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d 0 /f
             Process process = Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd",
@@ -73,9 +67,6 @@ namespace Twixer.MVVM.Model
 
             });
         }
-        
-
-
 
         public void DisableTaskManager(int value)
         {
@@ -107,8 +98,10 @@ namespace Twixer.MVVM.Model
             }
         }
 
-
-       
+        public void DisableMemoryDiagnostics(bool value)
+        {
+            MessageBox.Show("d");
+        }
 
     }
 }

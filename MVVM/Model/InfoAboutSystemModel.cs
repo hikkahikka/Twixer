@@ -215,12 +215,19 @@ namespace Twixer.MVVM.Model
             int buff_year = Convert.ToInt32(result.Substring(0, 4).TrimStart('0'));
             int buff_month = Convert.ToInt32(result.Substring(4, 2).TrimStart('0'));
             int buff_day = Convert.ToInt32(result.Substring(6, 2).TrimStart('0'));
-            int buff_hour = Convert.ToInt32(result.Substring(8, 2).TrimStart('0'));
-            int buff_minute = Convert.ToInt32(result.Substring(10, 2).TrimStart('0'));
-            int buff_second = Convert.ToInt32(result.Substring(12, 2).TrimStart('0'));
+
+
+
+
+            int buff_hour = (result.Substring(8, 2) == "00") ? 0 : Convert.ToInt32(result.Substring(8, 2).TrimStart('0'));  //красивое условие в одну строку ваааааа
+
+
+
+            int buff_minute = (result.Substring(10, 2) == "00") ? 0 : Convert.ToInt32(result.Substring(10, 2).TrimStart('0'));
+            int buff_second = (result.Substring(12, 2) == "00") ? 0 : Convert.ToInt32(result.Substring(12, 2).TrimStart('0'));
 
             DateTime timeNow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute, DateTime.Now.Second);
-            DateTime timeOn = new DateTime(buff_year, buff_month, buff_day, buff_hour, buff_minute, buff_second);         
+            DateTime timeOn = new DateTime(buff_year, buff_month, buff_day, buff_hour, buff_minute, buff_second);
             return Convert.ToString(timeNow.Subtract(timeOn));
         }
 
