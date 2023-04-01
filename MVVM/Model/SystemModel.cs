@@ -100,7 +100,31 @@ namespace Twixer.MVVM.Model
 
         public void DisableMemoryDiagnostics(bool value)
         {
-            MessageBox.Show("d");
+            if (value == true)
+            {
+                Process process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $@"bcdedit /set disabledynamictick yes",
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+
+                });
+            }
+            else
+            {
+
+                Process process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = $@"bcdedit /set disabledynamictick no",
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+
+                });
+            }
         }
 
     }
