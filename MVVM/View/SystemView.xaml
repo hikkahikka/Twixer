@@ -39,12 +39,14 @@
                   IsChecked="{Binding CheckedDisableMemoryDiagnostics}"/>
 
         <CheckBox Content="Отключить Cortana и все, что с ней связано"
-                     Style="{StaticResource ListCheckBoxTheme}"
+                  Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableCortanaCommand}"
                   IsChecked="{Binding CheckedDisableCortana}"/>
 
         <CheckBox Content="Увеличить кэш файловой системы"
-                     Style="{StaticResource ListCheckBoxTheme}"/>
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxAddCacheCommand}"
+                  IsChecked="{Binding CheckedAddCache}"/>
         
         
         

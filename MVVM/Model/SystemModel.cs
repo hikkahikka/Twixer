@@ -155,5 +155,31 @@ namespace Twixer.MVVM.Model
             }
         }
 
+        public void AddCache(int value)
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+
+
+
+            try
+            {
+                RegistryKey wKey = myKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management", true);
+
+                wKey.SetValue("DisablePagingExecutive", value, RegistryValueKind.DWord);
+                wKey.SetValue("LargeSystemCache", value, RegistryValueKind.DWord);
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey.Close();
+            }
+        }
+
     }
 }
