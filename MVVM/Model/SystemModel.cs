@@ -127,5 +127,33 @@ namespace Twixer.MVVM.Model
             }
         }
 
+        public void DisableCortana(int value)
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+
+
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+
+            try
+            {
+                RegistryKey windowsSearch = wKey.CreateSubKey("Windows Search");
+                
+
+
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true);
+                curKey.SetValue("AllowCortana", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey.Close();
+            }
+        }
+
     }
 }

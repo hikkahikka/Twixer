@@ -27,7 +27,7 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableUAC;
         private bool _buffCheckedDisableTaskManager;
         private bool _buffCheckedDisableMemoryDiagnostics;
-
+        private bool _buffCheckedDisableCortana;
 
 
         public bool CheckedDisableSecurityNotification
@@ -51,7 +51,6 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-
         public bool CheckedDisableUAC
         {
             get=> _buffCheckedDisableUAC;
@@ -61,7 +60,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CheckedDisableUAC));
             }
         }
-
 
         public bool CheckedDisableTaskManager
         {
@@ -83,13 +81,22 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-
+        public bool CheckedDisableCortana
+        {
+            get => _buffCheckedDisableCortana;
+            set
+            {
+                _buffCheckedDisableCortana = value;
+                OnPropertyChanged(nameof(CheckedDisableCortana));
+            }
+        }
 
         public DelegateCommand CheckBoxDisableSecurityNotificationCommand { get; set; }
         public DelegateCommand CheckBoxDisableUACCommand { get; set; }
         public DelegateCommand CheckBoxDisableDefenderWindowsCommand { get; set; }
         public DelegateCommand CheckBoxDisableTaskManagerCommand { get; set; }
         public DelegateCommand CheckBoxDisableMemoryDiagnosticsCommand { get; set; }
+        public DelegateCommand CheckBoxDisableCortanaCommand { get; set; }
 
 
 
@@ -118,6 +125,11 @@ namespace Twixer.MVVM.ViewModel
             new SystemModel().DisableMemoryDiagnostics(CheckedDisableMemoryDiagnostics);
         }
 
+        public void OnCheckBoxDisableCortanaPress()
+        {
+            new SystemModel().DisableCortana(Convert.ToInt32(CheckedDisableCortana));
+        }
+
         public SystemViewModel()
         {
             CheckBoxDisableSecurityNotificationCommand = new DelegateCommand(() => OnCheckBoxDisableSecurityNotificationPress());
@@ -125,6 +137,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableDefenderWindowsCommand = new DelegateCommand(() => OnCheckBoxDisableDefenderWindowsPress());
             CheckBoxDisableTaskManagerCommand = new DelegateCommand(() => OnCheckBoxDisableTaskManagerPress());
             CheckBoxDisableMemoryDiagnosticsCommand = new DelegateCommand(() => OnCheckBoxDisableMemoryDiagnosticsPress());
+            CheckBoxDisableCortanaCommand = new DelegateCommand(() => OnCheckBoxDisableCortanaPress()); 
         }
 
         
