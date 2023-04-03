@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -233,8 +234,9 @@ namespace Twixer.MVVM.Model
 
         public string GetIPAddressInfo()
         {
-            string pubIp ="error";
-            return pubIp;
+            string externalIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
+            var externalIp = IPAddress.Parse(externalIpString);
+            return externalIp.ToString();
         }
     }
 }
