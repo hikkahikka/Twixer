@@ -7,12 +7,12 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <StackPanel Orientation="Horizontal">
+        <!--<StackPanel Orientation="Horizontal">
             <Button Content="Выбрать все"
                     Style="{StaticResource HelpingButtonTheme}"/>
             <Button Content="Вернуть все значения по умолчанию"
                     Style="{StaticResource HelpingButtonTheme}"/>
-        </StackPanel>
+        </StackPanel>-->
         <CheckBox Content="Отключение телеметрии от Microsoft"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableMicrosoftTelemetryCommand}"
@@ -20,7 +20,7 @@
                   />
 
 
-        <CheckBox Content="Удаление OneDrive и всего, что с ним связано"
+        <CheckBox Content="Удаление OneDrive и всего, что с ним связано (безвозвратно)"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableDeleteOneDriveCommand}"
                   IsChecked="{Binding CheckedDisableDeleteOneDrive}"
@@ -36,7 +36,7 @@
                   Command="{Binding CheckBoxDisableEventLogProcessingCommand}"
                   IsChecked="{Binding CheckedDisableEventLogProcessing}"/>
 
-        <CheckBox Content="Отключение сбора сбора и отправки рукописного ввода"
+        <CheckBox Content="Отключение сбора и отправки рукописного ввода"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableCollectionHandwrittenInputCommand}"
                   IsChecked="{Binding CheckedDisableCollectionHandwrittenInput}"/>

@@ -233,7 +233,7 @@ namespace Twixer.MVVM.Model
 
         public string GetIPAddressInfo()
         {
-            string pubIp = new System.Net.WebClient().DownloadString("https://api.ipify.org");
+            string pubIp ="error";
             return pubIp;
         }
     }

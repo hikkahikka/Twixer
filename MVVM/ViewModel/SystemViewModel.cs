@@ -30,6 +30,8 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableCortana;
         private bool _buffCheckedAddCache;
 
+       
+
         public bool CheckedDisableSecurityNotification
         {
             get => _buffCheckedDisableSecurityNotification;
@@ -100,6 +102,8 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CheckedAddCache));
             }
         }
+
+        
 
         public DelegateCommand CheckBoxDisableSecurityNotificationCommand { get; set; }
         public DelegateCommand CheckBoxDisableUACCommand { get; set; }

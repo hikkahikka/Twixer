@@ -6,7 +6,11 @@
              xmlns:local="clr-namespace:Twixer.MVVM.View"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    
+
     <Grid>
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
@@ -40,15 +44,24 @@
                    FontStyle="Italic"
                    LineHeight="1"/>-->
         
-        <Button Content="Удалить выбранное"
+        <!--<Button Content="Удалить выбранное"
                     Style="{StaticResource HelpingButtonTheme}"
                     Grid.Column="1"
-                    Grid.Row="0"/>
-        
-        <!--<CheckBox Content="Microsoft Edge"
+                    Grid.Row="0"/>-->
+
+        <TextBlock Text="Нажмите на приложение, которое нужно удалить. Действие безвозвратно, будьте внимательны"
+                   FontStyle="Italic"
+                   FontSize="14"
+                   Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"/>
+
+        <CheckBox Content="Microsoft Edge"
                      Style="{StaticResource ListCheckBoxTheme}"
                     Grid.Column="0"
-                    Grid.Row="1"/>-->
+                    Grid.Row="1"/>
+        
+        
 
         <CheckBox Content="Microsoft Store"
                      Style="{StaticResource ListCheckBoxTheme}"
