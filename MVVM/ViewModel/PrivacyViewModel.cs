@@ -26,12 +26,15 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableEventLogProcessing;
         private bool _buffCheckedDisableUpdates;
         private bool _buffCheckedDisableCollectionHandwrittenInput;
-
+        private bool _buffCheckedDisableChangeWallpapers;
 
 
 
 
         private bool _buffIsEnableDeleteOneDrive = true;
+
+
+
 
         public bool IsEnableDeteleOneDrive
         {
@@ -101,11 +104,26 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
+        public bool CheckedDisableChangeWallpapers
+        {
+            get=> _buffCheckedDisableChangeWallpapers;
+            set
+            {
+                _buffCheckedDisableChangeWallpapers= value;
+                OnPropertyChanged(nameof(_buffCheckedDisableChangeWallpapers));
+            }
+        }
+
+
+
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
         public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
         public DelegateCommand CheckBoxDisableEventLogProcessingCommand { get; set; }
         public DelegateCommand CheckBoxDisableUpdatesCommand { get; set; }
         public DelegateCommand CheckBoxDisableCollectionHandwrittenInputCommand { get; set; }
+        public DelegateCommand CheckBoxDisableChangeWallpapersCommand { get; set; }
+
+
 
 
         public void OnCheckBoxDisableMicrosoftTelemetryPress()
@@ -136,6 +154,11 @@ namespace Twixer.MVVM.ViewModel
             new PrivacyModel().DisableCollectionHandwrittenInput(Convert.ToInt32(CheckedDisableCollectionHandwrittenInput));
         }
 
+        public void OnCheckBoxDisableChangeWallpapersPress()
+        {
+            new PrivacyModel().DisableChangeWallpapers(Convert.ToInt32(CheckedDisableChangeWallpapers));
+        }
+
 
         public PrivacyViewModel()
         {
@@ -144,6 +167,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
             CheckBoxDisableUpdatesCommand = new DelegateCommand(()=>OnCheckBoxDisableUpdatesPress());
             CheckBoxDisableCollectionHandwrittenInputCommand = new DelegateCommand(()=>OnCheckBoxDisableCollectionHandwrittenInputPress());
+            CheckBoxDisableChangeWallpapersCommand = new DelegateCommand(()=>OnCheckBoxDisableChangeWallpapersPress());
         }
 
 

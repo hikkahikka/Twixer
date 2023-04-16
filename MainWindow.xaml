@@ -71,9 +71,9 @@
                 Command="{Binding InfoAboutSystemViewCommand}"/>
                 
                 
-                <RadioButton Content="Приложения"
+                <!--<RadioButton Content="Приложения"
                 Style="{StaticResource MenuButtonTheme}"
-                Command="{Binding DefoltAppsCommand}"/>
+                Command="{Binding DefoltAppsCommand}"/>-->
                 
                 <RadioButton Content="Установка приложений"
                 Style="{StaticResource MenuButtonTheme}"

@@ -28,10 +28,18 @@ namespace Twixer
             
         }
 
-        private void MovingWin(object sender, RoutedEventArgs e)
+        private void MovingWin(object sender, MouseButtonEventArgs e)
         {
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                return;
+            }
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                this.DragMove();
+
+            }
             
-            this.DragMove();
             
         }
 

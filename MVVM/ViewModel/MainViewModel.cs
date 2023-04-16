@@ -21,7 +21,7 @@ namespace Twixer.MVVM.ViewModel
 
         public DelegateCommand SystemViewCommand { get; set; }
 
-        public DelegateCommand DefoltAppsCommand { get; set; }
+        //public DelegateCommand DefoltAppsCommand { get; set; }
 
         public DelegateCommand InstallAppsCommand { get; set; }
 
@@ -36,7 +36,7 @@ namespace Twixer.MVVM.ViewModel
 
 
 
-        public DefoltAppsViewModel DefoltAppsVM { get; set; }
+        //public DefoltAppsViewModel DefoltAppsVM { get; set; }
         public PrivacyViewModel PrivacyVM { get; set; }
         public InfoAboutSystemViewModel InfoAboutSystemVM { get; set; }
         public SystemViewModel SystemVM { get; set; }
@@ -78,7 +78,7 @@ namespace Twixer.MVVM.ViewModel
             PrivacyVM = new PrivacyViewModel();
             InfoAboutSystemVM = new InfoAboutSystemViewModel();
             SystemVM=new SystemViewModel();
-            DefoltAppsVM = new DefoltAppsViewModel();
+            //DefoltAppsVM = new DefoltAppsViewModel();
             InstallAppsVM = new InstallAppsViewModel();
 
             CurrentView = PrivacyVM;
@@ -89,7 +89,7 @@ namespace Twixer.MVVM.ViewModel
 
             InfoAboutSystemViewCommand = new DelegateCommand(() => CurrentView = InfoAboutSystemVM);
 
-            DefoltAppsCommand = new DelegateCommand(() => CurrentView = DefoltAppsVM);
+            //DefoltAppsCommand = new DelegateCommand(() => CurrentView = DefoltAppsVM);
 
             InstallAppsCommand = new DelegateCommand(() => CurrentView = InstallAppsVM);
 

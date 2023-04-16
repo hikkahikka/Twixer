@@ -128,9 +128,6 @@ namespace Twixer.MVVM.Model
             {
 
                 RegistryKey windowsUpdate = wKey.CreateSubKey("InputPersonalization");
-                
-
-
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
                 curKey.SetValue("RestrictImplicitTextCollection", value, RegistryValueKind.DWord);
                 curKey.SetValue("RestrictImplicitInkCollection", value, RegistryValueKind.DWord);
@@ -173,6 +170,40 @@ namespace Twixer.MVVM.Model
                 myKey2.Close();
             }
         }
+
+
+
+        public void DisableChangeWallpapers(int value)
+        {
+
+            RegistryKey myKey = Registry.LocalMachine;
+            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", true);
+
+            try
+            {
+
+                RegistryKey newKey = wKey.CreateSubKey("ActiveDesktop");
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop", true);
+                curKey.SetValue("NoChangingWallPaper", value, RegistryValueKind.DWord);
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+            }
+            finally
+            {
+                myKey.Close();
+            }
+
+        }
+
+        public void DisableDownloadApps(int value)
+        {
+
+        }
+
     }
     
 }
