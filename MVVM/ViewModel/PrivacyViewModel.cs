@@ -27,7 +27,7 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableUpdates;
         private bool _buffCheckedDisableCollectionHandwrittenInput;
         private bool _buffCheckedDisableChangeWallpapers;
-
+        //private bool _buffCheckedDisableDownloadApps;
 
 
 
@@ -114,6 +114,16 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
+        //public bool CheckedDisableDownloadApps
+        //{
+        //    get => _buffCheckedDisableDownloadApps;
+
+        //    set
+        //    {
+        //        _buffCheckedDisableDownloadApps = value;
+        //        OnPropertyChanged(nameof(_buffCheckedDisableDownloadApps));
+        //    }
+        //}
 
 
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
@@ -122,7 +132,7 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand CheckBoxDisableUpdatesCommand { get; set; }
         public DelegateCommand CheckBoxDisableCollectionHandwrittenInputCommand { get; set; }
         public DelegateCommand CheckBoxDisableChangeWallpapersCommand { get; set; }
-
+       // public DelegateCommand CheckBoxDisableDownloadAppsCommand { get; set; }
 
 
 
@@ -159,6 +169,10 @@ namespace Twixer.MVVM.ViewModel
             new PrivacyModel().DisableChangeWallpapers(Convert.ToInt32(CheckedDisableChangeWallpapers));
         }
 
+        //public void OnCheckBoxDisableDownloadAppsPress()
+        //{
+        //    new PrivacyModel().DisableDownloadApps(Convert.ToInt32(CheckedDisableDownloadApps));
+        //}
 
         public PrivacyViewModel()
         {

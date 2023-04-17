@@ -48,6 +48,7 @@
                   />
         <CheckBox Content="Запрет на установку приложений"
                   Style="{StaticResource ListCheckBoxTheme}"
+                  
                   />
 
     </StackPanel>
