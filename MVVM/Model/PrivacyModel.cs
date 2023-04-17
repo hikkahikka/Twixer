@@ -9,6 +9,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace Twixer.MVVM.Model
 {
@@ -176,26 +177,60 @@ namespace Twixer.MVVM.Model
         public void DisableChangeWallpapers(int value)
         {
 
-            RegistryKey myKey = Registry.LocalMachine;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", true);
-
-            try
+            if (value == 1)
             {
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
 
-                RegistryKey newKey = wKey.CreateSubKey("ActiveDesktop");
-                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\ActiveDesktop", true);
-                curKey.SetValue("NoChangingWallPaper", value, RegistryValueKind.DWord);
+                try
+                {
 
+                    // Открываем ветку реестра "Control Panel\Desktop"
+
+                    // Изменяем значение ключа "Wallpaper" на пустую строку
+                    key.SetValue("Wallpaper", "");
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+                }
+                finally
+                {
+                    // Закрываем ключ реестра
+                    key.Close();
+                }
+
+
+               
             }
-            catch (Exception e)
+
+
+            else
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
 
+                try
+                {
+
+                    // Открываем ветку реестра "Control Panel\Desktop"
+
+                    // Изменяем значение ключа "Wallpaper" на пустую строку
+                    key.SetValue("Wallpaper", @"C:\Windows\Web\Screen\img105.jpg");
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+                }
+                finally
+                {
+                    // Закрываем ключ реестра
+                    key.Close();
+                }
             }
-            finally
-            {
-                myKey.Close();
-            }
+            
 
         }
 
