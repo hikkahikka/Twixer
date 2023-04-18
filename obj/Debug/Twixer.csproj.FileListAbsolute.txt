@@ -1,0 +1,116 @@
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Twixer.exe.config
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Twixer.exe
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Twixer.pdb
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Hikka\source\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.AssemblyReference.cache
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MainWindow.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\App.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.cache
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.lref
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MainWindow.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.g.resources
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.Properties.Resources.resources
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.GenerateResource.cache
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.CoreCompileInputs.cache
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.CopyComplete
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.exe
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Twixer.pdb
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\App.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\MenuButtonTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\ListCheckBoxTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\NavigationButtonTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\HelpingButtonTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\LabelInfoTextTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\InfoTextTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\Themes\CopyButtonTheme.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.baml
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.g.cs
+C:\Users\Hikka\source\repos\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Twixer.exe.config
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Twixer.exe
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Twixer.pdb
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.dll
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+E:\очередной снос виндывс\repos\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.xml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.AssemblyReference.cache
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.SuggestedBindingRedirects.cache
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\InfoTextTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\LabelInfoTextTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\ListCheckBoxTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\HelpingButtonTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\CopyButtonTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\NavigationButtonTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Themes\MenuButtonTheme.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MainWindow.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\App.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.cache
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.lref
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\App.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MainWindow.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.baml
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.g.resources
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.Properties.Resources.resources
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.GenerateResource.cache
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.CoreCompileInputs.cache
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.csproj.CopyComplete
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.exe
+E:\очередной снос виндывс\repos\Twixer\Twixer\obj\Debug\Twixer.pdb
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Twixer.exe.config
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Twixer.exe
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Twixer.pdb
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.dll
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.pdb
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Microsoft.Xaml.Behaviors.xml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.csproj.AssemblyReference.cache
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.csproj.SuggestedBindingRedirects.cache
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\InfoTextTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\LabelInfoTextTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\ListCheckBoxTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\HelpingButtonTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\CopyButtonTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\NavigationButtonTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Themes\MenuButtonTheme.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MainWindow.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\App.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.cache
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer_MarkupCompile.lref
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\App.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MainWindow.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\DefoltAppsView.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\SystemView.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InfoAboutSystemView.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\PrivacyView.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.g.resources
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.Properties.Resources.resources
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.csproj.GenerateResource.cache
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.csproj.CoreCompileInputs.cache
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.csproj.CopyComplete
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.exe
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\Twixer.pdb
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Prism.dll
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Prism.pdb
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Prism.xml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InstallAppsView.g.cs
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InstallAppsView.baml

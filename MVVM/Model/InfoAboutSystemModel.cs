@@ -234,9 +234,18 @@ namespace Twixer.MVVM.Model
 
         public string GetIPAddressInfo()
         {
-            string externalIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
-            var externalIp = IPAddress.Parse(externalIpString);
-            return externalIp.ToString();
+            
+            try
+            {
+                string externalIpString = new WebClient().DownloadString("http://icanhazip.com").Replace("\\r\\n", "").Replace("\\n", "").Trim();
+                var externalIp = IPAddress.Parse(externalIpString);
+                return externalIp.ToString();
+            }
+            catch(Exception ex)
+            {
+                return "Ошибка, проверьте подключение к интернету";
+            }
+            
         }
     }
 }
