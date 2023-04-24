@@ -1,21 +1,32 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
-using System.Text;
+
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
+
+
 namespace Twixer.MVVM.Model
 {
+
     internal class InfoAboutSystemModel
     {
         public string GetOperationSystemInfo()
         {
-            
+
+            //using (FileStream fs = new FileStream("Data.json", FileMode.OpenOrCreate))
+            //{
+            //    Data d = new Data();
+            //    JsonSerializer.Serialize(fs, d);
+                
+            //}
+
             Process process = Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd",

@@ -183,7 +183,7 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableCollectionHandwrittenInputCommand = new DelegateCommand(()=>OnCheckBoxDisableCollectionHandwrittenInputPress());
             CheckBoxDisableChangeWallpapersCommand = new DelegateCommand(()=>OnCheckBoxDisableChangeWallpapersPress());
         }
-
+        
 
     }
 }

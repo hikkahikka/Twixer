@@ -25,6 +25,8 @@ namespace Twixer
         {
             InitializeComponent();
             DataContext = new MainViewModel();
+
+
             
         }
 

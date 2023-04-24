@@ -114,3 +114,5 @@ C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Prism.pdb
 C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Prism.xml
 C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InstallAppsView.g.cs
 C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\obj\Debug\MVVM\View\InstallAppsView.baml
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Hikka\source\repos\hikkahikka\Twixer\Twixer\bin\Debug\Newtonsoft.Json.xml
