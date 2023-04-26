@@ -29,8 +29,8 @@ namespace Twixer.MVVM.ViewModel
         private bool _buffCheckedDisableMemoryDiagnostics;
         private bool _buffCheckedDisableCortana;
         private bool _buffCheckedAddCache;
+        private bool _buffCheckedDisableChangeWallpapers;
 
-       
 
         public bool CheckedDisableSecurityNotification
         {
@@ -103,7 +103,15 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-        
+        public bool CheckedDisableChangeWallpapers
+        {
+            get => _buffCheckedDisableChangeWallpapers;
+            set
+            {
+                _buffCheckedDisableChangeWallpapers = value;
+                OnPropertyChanged(nameof(_buffCheckedDisableChangeWallpapers));
+            }
+        }
 
         public DelegateCommand CheckBoxDisableSecurityNotificationCommand { get; set; }
         public DelegateCommand CheckBoxDisableUACCommand { get; set; }
@@ -112,6 +120,8 @@ namespace Twixer.MVVM.ViewModel
         public DelegateCommand CheckBoxDisableMemoryDiagnosticsCommand { get; set; }
         public DelegateCommand CheckBoxDisableCortanaCommand { get; set; }
         public DelegateCommand CheckBoxAddCacheCommand { get; set; }
+
+        public DelegateCommand CheckBoxDisableChangeWallpapersCommand { get; set; }
 
 
         public void OnCheckBoxDisableSecurityNotificationPress()
@@ -149,6 +159,11 @@ namespace Twixer.MVVM.ViewModel
             new SystemModel().AddCache(Convert.ToInt32(CheckedAddCache));
         }
 
+        public void OnCheckBoxDisableChangeWallpapersPress()
+        {
+            new SystemModel().DisableChangeWallpapers(Convert.ToInt32(CheckedDisableChangeWallpapers));
+        }
+
         public SystemViewModel()
         {
             CheckBoxDisableSecurityNotificationCommand = new DelegateCommand(() => OnCheckBoxDisableSecurityNotificationPress());
@@ -158,8 +173,10 @@ namespace Twixer.MVVM.ViewModel
             CheckBoxDisableMemoryDiagnosticsCommand = new DelegateCommand(() => OnCheckBoxDisableMemoryDiagnosticsPress());
             CheckBoxDisableCortanaCommand = new DelegateCommand(() => OnCheckBoxDisableCortanaPress()); 
             CheckBoxAddCacheCommand = new DelegateCommand(() => OnCheckBoxAddCachePress());
+            CheckBoxDisableChangeWallpapersCommand = new DelegateCommand(() => OnCheckBoxDisableChangeWallpapersPress());
+
         }
 
-        
+
     }
 }

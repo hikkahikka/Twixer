@@ -17,7 +17,7 @@
                     Command="{Binding ButtonRSTRUICommand}"/>--><!--
             
         </StackPanel>-->
-        <CheckBox Content="Отключить уведомление о безопастности от Центра уведомлений"
+        <CheckBox Content="Отключить уведомление о безопасности от Центра уведомлений"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableSecurityNotificationCommand}"
                   IsChecked="{Binding CheckedDisableSecurityNotification}"/>
@@ -52,7 +52,12 @@
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableTaskManagerCommand}"
                   IsChecked="{Binding CheckedDisableTaskManager}"/>
-
+        
+        <CheckBox Content="Запрет на смену обоев"
+                  Style="{StaticResource ListCheckBoxTheme}"
+                  Command="{Binding CheckBoxDisableChangeWallpapersCommand}"
+                  IsChecked="{Binding CheckedDisableChangeWallpapers}"
+                  />
 
     </StackPanel>
 </UserControl>

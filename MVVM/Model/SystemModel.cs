@@ -181,5 +181,65 @@ namespace Twixer.MVVM.Model
             }
         }
 
+        public void DisableChangeWallpapers(int value)
+        {
+
+            if (value == 1)
+            {
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+
+                try
+                {
+
+                    // Открываем ветку реестра "Control Panel\Desktop"
+
+                    // Изменяем значение ключа "Wallpaper" на пустую строку
+                    key.SetValue("Wallpaper", "");
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+                }
+                finally
+                {
+                    // Закрываем ключ реестра
+                    key.Close();
+                }
+
+
+
+            }
+
+
+            else
+            {
+                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
+
+                try
+                {
+
+                    // Открываем ветку реестра "Control Panel\Desktop"
+
+                    // Изменяем значение ключа "Wallpaper" на пустую строку
+                    key.SetValue("Wallpaper", @"C:\Windows\Web\Screen\img105.jpg");
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+
+                }
+                finally
+                {
+                    // Закрываем ключ реестра
+                    key.Close();
+                }
+            }
+
+
+        }
+
     }
 }

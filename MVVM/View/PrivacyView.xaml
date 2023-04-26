@@ -41,15 +41,11 @@
                   Command="{Binding CheckBoxDisableCollectionHandwrittenInputCommand}"
                   IsChecked="{Binding CheckedDisableCollectionHandwrittenInput}"/>
 
-        <CheckBox Content="Запрет на смену обоев"
-                  Style="{StaticResource ListCheckBoxTheme}"
-                  Command="{Binding CheckBoxDisableChangeWallpapersCommand}"
-                  IsChecked="{Binding CheckedDisableChangeWallpapers}"
-                  />
-        <CheckBox Content="Запрет на установку приложений"
+        
+        <!--<CheckBox Content="Запрет на установку приложений"
                   Style="{StaticResource ListCheckBoxTheme}"
                   
-                  />
+                  />-->
 
     </StackPanel>
 </UserControl>
