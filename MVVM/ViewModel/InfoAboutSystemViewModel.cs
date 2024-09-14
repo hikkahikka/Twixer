@@ -147,7 +147,7 @@ namespace Twixer.MVVM.ViewModel
 
         public InfoAboutSystemViewModel()
         {
-
+            // TODO: make it async
 
             GetOperationSystemCommand = new DelegateCommand(() => GetOperationSystem());
             GetMotherboardCommand = new DelegateCommand(() => GetMotherboard());    
