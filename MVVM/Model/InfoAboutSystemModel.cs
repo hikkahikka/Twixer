@@ -18,15 +18,7 @@ namespace Twixer.MVVM.Model
     internal class InfoAboutSystemModel
     {
         public string GetOperationSystemInfo()
-        {
-
-            //using (FileStream fs = new FileStream("Data.json", FileMode.OpenOrCreate))
-            //{
-            //    Data d = new Data();
-            //    JsonSerializer.Serialize(fs, d);
-                
-            //}
-
+        {       
             Process process = Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd",
