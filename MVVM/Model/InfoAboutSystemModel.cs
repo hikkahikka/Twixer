@@ -29,14 +29,8 @@ namespace Twixer.MVVM.Model
 
             });
 
-            string infoAboutSystem = process.StandardOutput.ReadToEnd();
-
-            
-
-            string result = "";
-            
-
-
+            string infoAboutSystem = process.StandardOutput.ReadToEnd();     
+            string result = "";         
             Regex regex = new Regex(@"=.*");
             MatchCollection matches = regex.Matches(infoAboutSystem);
             if (matches.Count > 0)
@@ -68,19 +62,13 @@ namespace Twixer.MVVM.Model
             });
 
             string motherboard = process.StandardOutput.ReadToEnd();
-
             string result;
-
-
             result = motherboard.Replace("Manufacturer", "").Replace("Product", "").Replace("\r", "").Replace("\n", "").Trim();
-
-
             return result;
         }
 
         public string GetCPUInfo()
         {
-
             Process process = Process.Start(new ProcessStartInfo
             {
                 FileName = "cmd",
@@ -90,14 +78,9 @@ namespace Twixer.MVVM.Model
                 RedirectStandardOutput = true,
 
             });
-
             string cpu = process.StandardOutput.ReadToEnd();
-
             string result;
-
             result = cpu.Replace("\r", "").Replace("\n", "").Replace("Name", "").Trim();
-
-
             return result;
         }
 
