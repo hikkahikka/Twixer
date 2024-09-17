@@ -40,15 +40,6 @@ namespace Twixer.MVVM.ViewModel
         public PrivacyViewModel PrivacyVM { get; set; }
         public InfoAboutSystemViewModel InfoAboutSystemVM { get; set; }
         public SystemViewModel SystemVM { get; set; }
-        public InstallAppsViewModel InstallAppsVM { get; set; }
-
-
-
-
-
-
-
-
         private object _currentView;
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -78,9 +69,6 @@ namespace Twixer.MVVM.ViewModel
             PrivacyVM = new PrivacyViewModel();
             InfoAboutSystemVM = new InfoAboutSystemViewModel();
             SystemVM=new SystemViewModel();
-            //DefoltAppsVM = new DefoltAppsViewModel();
-            InstallAppsVM = new InstallAppsViewModel();
-
             CurrentView = PrivacyVM;
             
             PrivacyViewCommand = new DelegateCommand(() => CurrentView = PrivacyVM);
@@ -89,10 +77,7 @@ namespace Twixer.MVVM.ViewModel
 
             InfoAboutSystemViewCommand = new DelegateCommand(() => CurrentView = InfoAboutSystemVM);
 
-            //DefoltAppsCommand = new DelegateCommand(() => CurrentView = DefoltAppsVM);
-
-            InstallAppsCommand = new DelegateCommand(() => CurrentView = InstallAppsVM);
-
+            
             //MousePressedToMovingCommand = new DelegateCommand(OnMousePressedToMoving);
 
             OnCloseButtonClickCommand = new DelegateCommand(() => Application.Current.Shutdown());
