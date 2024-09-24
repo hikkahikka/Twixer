@@ -157,14 +157,16 @@ namespace Twixer.MVVM.ViewModel
             GetTimeOfWorkCommand=new DelegateCommand(() => GetTimeOfWork());
             GetIPAddressCommand = new DelegateCommand(() => GetIPAddress());
 
-
-            GetOperationSystem();
-            GetMotherboard();
-            GetCPU();
-            GetRAM();
-            GetGPU();
-            GetTimeOfWork();
-            GetIPAddress();
+            new Task( ()=>
+            {
+                GetOperationSystem();
+                GetMotherboard();
+                GetCPU();
+                GetRAM();
+                GetGPU();
+                GetTimeOfWork();
+                GetIPAddress();
+            }).Start();
 
         } 
 
