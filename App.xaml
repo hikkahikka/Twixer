@@ -34,13 +34,7 @@
                 <view:SystemView/>
             </DataTemplate>
             
-            <DataTemplate DataType="{x:Type viewModel:DefoltAppsViewModel}">
-                <view:DefoltAppsView/>
-            </DataTemplate>
-
-            <DataTemplate DataType="{x:Type viewModel:InstallAppsViewModel}">
-                <view:InstallAppsView/>
-            </DataTemplate>
+            
 
         </ResourceDictionary>
         

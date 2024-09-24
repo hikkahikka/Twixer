@@ -75,9 +75,7 @@
                 Style="{StaticResource MenuButtonTheme}"
                 Command="{Binding DefoltAppsCommand}"/>-->
                 
-                <RadioButton Content="Установка приложений"
-                Style="{StaticResource MenuButtonTheme}"
-                Command="{Binding InstallAppsCommand}"/>
+                
 
             </StackPanel>
 
