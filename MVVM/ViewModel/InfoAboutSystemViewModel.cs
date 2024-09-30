@@ -23,50 +23,7 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        class SysInfo
-        {
-            public string OperationSystem
-            {
-                get;
-                set;
-            }
-
-            public string Motherboard
-            {
-                get;
-                set;
-            }
-
-            public string CPU
-            {
-                get;
-                set;
-            }
-
-            public string RAM
-            {
-                get;
-                set;
-            }
-
-            public string GPU
-            {
-                get;
-                set;
-            }
-
-            public string TimeOfWork
-            {
-                get;
-                set;
-            }
-
-            public string IPAddress
-            {
-                get;
-                set;
-            }
-        };
+       
 
         private string _buffOperationSystem;
         private string _buffMotherboard;
@@ -186,7 +143,7 @@ namespace Twixer.MVVM.ViewModel
 
         public InfoAboutSystemViewModel()
         {
-            const string json_path = "info_about_system.json";
+           
 
             OperationSystemCommand = new DelegateCommand(() => SetOperationSystem());
             MotherboardCommand = new DelegateCommand(() => SetMotherboard());    
@@ -195,35 +152,17 @@ namespace Twixer.MVVM.ViewModel
             GPUCommand= new DelegateCommand(() => SetGPU());
             TimeOfWorkCommand=new DelegateCommand(() => SetTimeOfWork());
             IPAddressCommand = new DelegateCommand(() => SetIPAddress());
-            
-            if (File.Exists(json_path))
+            new Task(() =>
             {
-                SysInfo sysinfo = JsonConvert.DeserializeObject<SysInfo>(File.ReadAllText(json_path));
-                OperationSystem = sysinfo.OperationSystem;
-                CPU = sysinfo.CPU;
-                RAM = sysinfo.RAM;
-                GPU = sysinfo.GPU;
-                Motherboard= sysinfo.Motherboard;
-                IPAddress = sysinfo.IPAddress;
-                TimeOfWork = sysinfo.TimeOfWork;
-            }
-            else
-            {
-                new Task(() =>
-                {
-                    SetOperationSystem();
-                    SetMotherboard();
-                    SetCPU();
-                    SetRAM();
-                    SetGPU();
-                    SetTimeOfWork();
-                    SetIPAddress();
+                SetOperationSystem();
+                SetMotherboard();
+                SetCPU();
+                SetRAM();
+                SetGPU();
+                SetTimeOfWork();
+                SetIPAddress();
+            }).Start();
 
-                    string json = JsonConvert.SerializeObject(this);
-                    try { File.WriteAllText(json_path, json); }
-                    catch { }
-                }).Start();
-            }
         }
     }
 }

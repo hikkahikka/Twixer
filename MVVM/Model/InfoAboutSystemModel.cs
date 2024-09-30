@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Runtime.CompilerServices;
 
+using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -17,35 +18,113 @@ namespace Twixer.MVVM.Model
 
     internal class InfoAboutSystemModel
     {
-        public string GetOperationSystemInfo()
-        {       
-            Process process = Process.Start(new ProcessStartInfo
+        class SysInfo
+        {
+            public string OperationSystem
             {
-                FileName = "cmd",
-                Arguments = @"/c chcp 65001 & wmic os get Caption, Version / value ",
-                CreateNoWindow= true,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-
-            });
-
-            string infoAboutSystem = process.StandardOutput.ReadToEnd();     
-            string result = "";         
-            Regex regex = new Regex(@"=.*");
-            MatchCollection matches = regex.Matches(infoAboutSystem);
-            if (matches.Count > 0)
-            {
-                foreach (Match match in matches)
-
-                    result += match.Value.Replace("\r", "");
+                get;
+                set;
             }
+
+            public string Motherboard
+            {
+                get;
+                set;
+            }
+
+            public string CPU
+            {
+                get;
+                set;
+            }
+
+            public string RAM
+            {
+                get;
+                set;
+            }
+
+            public string GPU
+            {
+                get;
+                set;
+            }
+
+            public string TimeOfWork
+            {
+                get;
+                set;
+            }
+
+            public string IPAddress
+            {
+                get;
+                set;
+            }
+        };
+
+        private const string json_path = "info_about_system.json";
+        //private string OperationSystem;
+        //private string Motherboard;
+        //private string CPU;
+        //private string RAM;
+        //private string GPU;
+        //private string TimeOfWork;
+        
+       
+
+        public string GetOperationSystemInfo()
+        {
+            if (File.Exists(json_path))
+            {
+                SysInfo sysinfo = JsonConvert.DeserializeObject<SysInfo>(File.ReadAllText(json_path));
+               
+                return sysinfo.OperationSystem;
+            }
+
+
             else
             {
-                result = "ERROR";
-            }
-            result = result.Replace("=", " ").Remove(0, 11).Trim();
+                Process process = Process.Start(new ProcessStartInfo
+                {
+                    FileName = "cmd",
+                    Arguments = @"/c chcp 65001 & wmic os get Caption, Version / value ",
+                    CreateNoWindow = true,
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
 
-            return result;
+                });
+
+                string infoAboutSystem = process.StandardOutput.ReadToEnd();
+                string result = "";
+                Regex regex = new Regex(@"=.*");
+                MatchCollection matches = regex.Matches(infoAboutSystem);
+                if (matches.Count > 0)
+                {
+                    foreach (Match match in matches)
+
+                        result += match.Value.Replace("\r", "");
+                }
+                else
+                {
+                    result = "ERROR";
+                }
+                result = result.Replace("=", " ").Remove(0, 11).Trim();
+
+
+                SysInfo sysinfo = new SysInfo();
+
+                sysinfo.OperationSystem = result;
+
+                string json = JsonConvert.SerializeObject(sysinfo);
+
+                try { File.WriteAllText(json_path, json); }
+                catch { }
+
+                return result;
+
+
+            }
 
         }
 
