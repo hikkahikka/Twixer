@@ -15,10 +15,12 @@ namespace Twixer.MVVM.Model
 {
     internal class PrivacyModel
     {
+        IPrivacySerializer serializer;
+
 
         public void DisableMicrosoftTelemetry(int value)
         {
-
+            
 
             RegistryKey myKey = Registry.LocalMachine;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
