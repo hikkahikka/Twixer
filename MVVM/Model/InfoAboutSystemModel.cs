@@ -10,6 +10,7 @@ using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Shell;
 
 
 
@@ -17,8 +18,21 @@ namespace Twixer.MVVM.Model
 {
 
     internal class InfoAboutSystemModel {     
-       
 
+        public InfoAboutSystemData GetInfoAboutSystemData()
+        {
+            InfoAboutSystemData data = new InfoAboutSystemData();
+            data.OperationSystem = GetOperationSystemInfo();
+            data.Motherboard = GetMotherboardInfo();
+            data.CPU = GetCPUInfo();
+
+            return data;
+        }
+
+        public void WriteJSONToFile(string json)
+        {
+           
+        }
         public string GetOperationSystemInfo()
         {
             

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -25,7 +26,8 @@ namespace Twixer.MVVM.Model
 
         public void SerializeInfoAboutSystem(InfoAboutSystemData data)
         {
-            throw new NotImplementedException();
+            
+
         }
 
         public void SerializePrivacy(PrivacyData data)
