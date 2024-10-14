@@ -8,10 +8,9 @@ namespace Twixer.MVVM.Model
 {
     internal interface IInfoAboutSystemSerializer
     {
-        public AboutSystemData DeserializeInfoAboutSystem();
+        public InfoAboutSystemData DeserializeInfoAboutSystem();
 
-
-        public void SerializeInfoAboutSystem();
+        public void SerializeInfoAboutSystem(InfoAboutSystemData data);
 
     }
 }

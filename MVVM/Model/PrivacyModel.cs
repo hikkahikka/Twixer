@@ -16,8 +16,6 @@ namespace Twixer.MVVM.Model
     internal class PrivacyModel
     {
         IPrivacySerializer serializer;
-
-
         public void DisableMicrosoftTelemetry(int value)
         {
             
@@ -174,14 +172,6 @@ namespace Twixer.MVVM.Model
             }
         }
 
-
-
-        
-
-        public void DisableDownloadApps(int value)
-        {
-
-        }
 
     }
     

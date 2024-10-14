@@ -129,15 +129,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\AboutSystemData.cs" />
+    <Compile Include="MVVM\Model\InfoAboutSystemData.cs" />
     <Compile Include="MVVM\Model\IInfoAboutSystemSerializer.cs" />
     <Compile Include="MVVM\Model\ISystemSerializer.cs" />
-    <Compile Include="MVVM\Model\PrivacyInfoData.cs" />
+    <Compile Include="MVVM\Model\PrivacyData.cs" />
     <Compile Include="MVVM\Model\IPrivacySerializer.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\PrivacyModel.cs" />
     <Compile Include="MVVM\Model\Serializer.cs" />
-    <Compile Include="MVVM\Model\SystemInfoData.cs" />
+    <Compile Include="MVVM\Model\SystemData.cs" />
     <Compile Include="MVVM\Model\SystemModel.cs" />
     <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />

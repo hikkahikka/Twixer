@@ -8,5 +8,9 @@ namespace Twixer.MVVM.Model
 {
     internal interface ISystemSerializer
     {
+        public SystemData DeserializeSystem();
+
+        public void SerializeSystem(SystemData data);
+
     }
 }

@@ -6,14 +6,34 @@ using System.Threading.Tasks;
 
 namespace Twixer.MVVM.Model
 {
-    internal class Serializer : IPrivacySerializer
+    internal class Serializer : IPrivacySerializer, IInfoAboutSystemSerializer, ISystemSerializer
     {
-        public PrivacyInfoData DeserializePrivacy()
+        public InfoAboutSystemData DeserializeInfoAboutSystem()
         {
             throw new NotImplementedException();
         }
 
-        public void SerializePrivacy()
+        public PrivacyData DeserializePrivacy()
+        {
+            throw new NotImplementedException();
+        }
+
+        public SystemData DeserializeSystem()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeInfoAboutSystem(InfoAboutSystemData data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializePrivacy(PrivacyData data)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeSystem(SystemData data)
         {
             throw new NotImplementedException();
         }
