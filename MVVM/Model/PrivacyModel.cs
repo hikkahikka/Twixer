@@ -10,7 +10,11 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using Newtonsoft.Json;
 
+using System.Net;
+
+using System.Windows.Shell;
 namespace Twixer.MVVM.Model
 {
     internal class PrivacyModel

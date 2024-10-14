@@ -8,9 +8,9 @@ namespace Twixer.MVVM.Model
 {
     internal interface IInfoAboutSystemSerializer
     {
-        public InfoAboutSystemData DeserializeInfoAboutSystem();
+        public InfoAboutSystemData DeserializeInfoAboutSystem(string json_path);
 
-        public void SerializeInfoAboutSystem(InfoAboutSystemData data);
+        public string SerializeInfoAboutSystem(InfoAboutSystemData data);
 
     }
 }

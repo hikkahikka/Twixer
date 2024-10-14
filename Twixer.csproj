@@ -136,6 +136,7 @@
     <Compile Include="MVVM\Model\IPrivacySerializer.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\PrivacyModel.cs" />
+    <Compile Include="MVVM\Model\Register.cs" />
     <Compile Include="MVVM\Model\Serializer.cs" />
     <Compile Include="MVVM\Model\SystemData.cs" />
     <Compile Include="MVVM\Model\SystemModel.cs" />

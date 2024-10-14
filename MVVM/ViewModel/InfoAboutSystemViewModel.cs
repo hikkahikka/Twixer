@@ -114,31 +114,31 @@ namespace Twixer.MVVM.ViewModel
 
         private void SetOperationSystem()
         {
-            OperationSystem =  new InfoAboutSystemModel().GetOperationSystemInfo();  
+            OperationSystem =  new InfoAboutSystemModel().SetOperationSystemInfo();  
         }
         private void SetMotherboard()
         {
-            Motherboard = new InfoAboutSystemModel().GetMotherboardInfo();
+            Motherboard = new InfoAboutSystemModel().SetMotherboardInfo();
         }
         private void SetCPU()
         {
-            CPU = new InfoAboutSystemModel().GetCPUInfo();
+            CPU = new InfoAboutSystemModel().SetCPUInfo();
         }
         private void SetRAM()
         {
-            RAM = new InfoAboutSystemModel().GetRAMInfo();
+            RAM = new InfoAboutSystemModel().SetRAMInfo();
         }
         private void SetGPU()
         {
-            GPU = new InfoAboutSystemModel().GetGPUInfo();
+            GPU = new InfoAboutSystemModel().SetGPUInfo();
         }
         private void SetTimeOfWork()
         {
-            TimeOfWork = new InfoAboutSystemModel().GetTimeOfWorkInfo();
+            TimeOfWork = new InfoAboutSystemModel().SetTimeOfWorkInfo();
         }
         private void SetIPAddress()
         {
-            IPAddress = new InfoAboutSystemModel().GetIPAddressInfo();
+            IPAddress = new InfoAboutSystemModel().SetIPAddressInfo();
         }
 
         public InfoAboutSystemViewModel()
