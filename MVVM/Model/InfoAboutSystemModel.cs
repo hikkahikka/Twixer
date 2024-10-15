@@ -50,50 +50,12 @@ namespace Twixer.MVVM.Model
             }
             return data;
         }
-
-
-        
-        public string SetOperationSystemInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.OperationSystem;
-        }
-
-        public string SetMotherboardInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.Motherboard;
-        }
-
-        public string SetCPUInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.CPU;
-        }
-
-        public string SetRAMInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.RAM;
-        }
-
-        public string SetGPUInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.GPU;
-        }
-
         public string SetTimeOfWorkInfo()
         {
             Register data = new Register();
             return data.GetTimeOfWorkInfo();
         }
 
-        public string SetIPAddressInfo()
-        {
-            InfoAboutSystemData data = GetInfoAboutSystemData();
-            return data.IP;
-
-        }
+        
     }
 }

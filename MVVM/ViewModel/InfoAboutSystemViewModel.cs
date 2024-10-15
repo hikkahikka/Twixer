@@ -22,9 +22,7 @@ namespace Twixer.MVVM.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
-
-       
-
+   
         private string _buffOperationSystem;
         private string _buffMotherboard;
         private string _buffCPU;
@@ -42,7 +40,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(OperationSystem));
             }
         }
-
         public string Motherboard
         {
             get => _buffMotherboard;
@@ -52,7 +49,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(Motherboard));
             }
         }
-
         public string CPU
         {
             get => _buffCPU;
@@ -62,7 +58,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CPU));
             }
         }
-
         public string RAM
         {
             get => _buffRAM;
@@ -72,7 +67,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(RAM));
             }
         }
-
         public string GPU
         {
             get => _buffGPU;
@@ -82,7 +76,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(GPU));
             }
         }
-
         public string TimeOfWork
         {
             get => _buffTimeOfWork;
@@ -92,7 +85,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(TimeOfWork));
             }
         }
-
         public string IPAddress
         {
             get => _buffIPAddress;
@@ -102,51 +94,31 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(IPAddress));
             }
         }
-
-
-        private void SetOperationSystem()
-        {
-            OperationSystem =  new InfoAboutSystemModel().SetOperationSystemInfo();  
-        }
-        private void SetMotherboard()
-        {
-            Motherboard = new InfoAboutSystemModel().SetMotherboardInfo();
-        }
-        private void SetCPU()
-        {
-            CPU = new InfoAboutSystemModel().SetCPUInfo();
-        }
-        private void SetRAM()
-        {
-            RAM = new InfoAboutSystemModel().SetRAMInfo();
-        }
-        private void SetGPU()
-        {
-            GPU = new InfoAboutSystemModel().SetGPUInfo();
-        }
         private void SetTimeOfWork()
         {
             TimeOfWork = new InfoAboutSystemModel().SetTimeOfWorkInfo();
         }
-        private void SetIPAddress()
+       
+
+        private void SetInfoAboutSystemData()
         {
-            IPAddress = new InfoAboutSystemModel().SetIPAddressInfo();
+            InfoAboutSystemData data = new InfoAboutSystemModel().GetInfoAboutSystemData();
+            OperationSystem = data.OperationSystem;
+            Motherboard = data.Motherboard;
+            CPU = data.CPU;
+            RAM = data.RAM;
+            GPU = data.GPU;
+            IPAddress = data.IP;
+
         }
-
-
 
 
         public InfoAboutSystemViewModel()
         {
             new Task(() =>
             {
-                SetOperationSystem();
-                SetMotherboard();
-                SetCPU();
-                SetRAM();
-                SetGPU();
-                SetTimeOfWork();
-                SetIPAddress();
+                SetInfoAboutSystemData();
+                SetTimeOfWork(); //TODO сделать обновление
             }).Start();
 
         }
