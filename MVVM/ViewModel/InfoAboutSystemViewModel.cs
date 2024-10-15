@@ -103,14 +103,6 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-        public DelegateCommand OperationSystemCommand { get; set; }
-        public DelegateCommand MotherboardCommand { get; set; }
-        public DelegateCommand CPUCommand { get; set; }
-        public DelegateCommand RAMCommand { get; set; }
-        public DelegateCommand GPUCommand { get; set; }
-        public DelegateCommand TimeOfWorkCommand { get; set; }
-        public DelegateCommand IPAddressCommand { get; set; }
-
 
         private void SetOperationSystem()
         {
@@ -141,17 +133,11 @@ namespace Twixer.MVVM.ViewModel
             IPAddress = new InfoAboutSystemModel().SetIPAddressInfo();
         }
 
+
+
+
         public InfoAboutSystemViewModel()
         {
-           
-
-            OperationSystemCommand = new DelegateCommand(() => SetOperationSystem());
-            MotherboardCommand = new DelegateCommand(() => SetMotherboard());    
-            CPUCommand= new DelegateCommand(() => SetCPU());
-            RAMCommand= new DelegateCommand(() => SetRAM());
-            GPUCommand= new DelegateCommand(() => SetGPU());
-            TimeOfWorkCommand=new DelegateCommand(() => SetTimeOfWork());
-            IPAddressCommand = new DelegateCommand(() => SetIPAddress());
             new Task(() =>
             {
                 SetOperationSystem();
