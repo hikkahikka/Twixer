@@ -11,6 +11,7 @@ using Twixer.MVVM.Model;
 using System.IO;
 using Newtonsoft.Json;
 using System.Windows.Input;
+using System.Threading;
 
 namespace Twixer.MVVM.ViewModel
 {
@@ -118,7 +119,11 @@ namespace Twixer.MVVM.ViewModel
             new Task(() =>
             {
                 SetInfoAboutSystemData();
-                SetTimeOfWork(); //TODO сделать обновление
+                while (true)
+                {
+                    SetTimeOfWork(); //TODO сделать обновление
+                    Thread.Sleep(100);
+                }
             }).Start();
 
         }
