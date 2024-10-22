@@ -18,23 +18,13 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-
-
-
         private bool _buffCheckedDisableMicrosoftTelemetry;
         private bool _buffCheckedDisableDeteleOneDrive;
         private bool _buffCheckedDisableEventLogProcessing;
         private bool _buffCheckedDisableUpdates;
         private bool _buffCheckedDisableCollectionHandwrittenInput;
-        
-        //private bool _buffCheckedDisableDownloadApps;
-
-
 
         private bool _buffIsEnableDeleteOneDrive = true;
-
-
-
 
         public bool IsEnableDeteleOneDrive
         {
@@ -47,13 +37,6 @@ namespace Twixer.MVVM.ViewModel
             }
 
         }
-        
-
-
-
-
-
-
         public bool CheckedDisableMicrosoftTelemetry
         {
             get => _buffCheckedDisableMicrosoftTelemetry;
@@ -64,7 +47,6 @@ namespace Twixer.MVVM.ViewModel
                 
             }
         }
-
         public bool CheckedDisableDeleteOneDrive
         {
             get => _buffCheckedDisableDeteleOneDrive;
@@ -74,7 +56,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CheckedDisableDeleteOneDrive));
             }
         }
-
         public bool CheckedDisableEventLogProcessing
         {
             get => _buffCheckedDisableEventLogProcessing;
@@ -93,7 +74,6 @@ namespace Twixer.MVVM.ViewModel
                 OnPropertyChanged(nameof(CheckedDisableUpdates));
             }
         }
-
         public bool CheckedDisableCollectionHandwrittenInput
         {
             get=> _buffCheckedDisableCollectionHandwrittenInput;
@@ -104,29 +84,11 @@ namespace Twixer.MVVM.ViewModel
             }
         }
 
-
-
-        //public bool CheckedDisableDownloadApps
-        //{
-        //    get => _buffCheckedDisableDownloadApps;
-
-        //    set
-        //    {
-        //        _buffCheckedDisableDownloadApps = value;
-        //        OnPropertyChanged(nameof(_buffCheckedDisableDownloadApps));
-        //    }
-        //}
-
-
         public DelegateCommand CheckBoxDisableMicrosoftTelemetryCommand { get; set; }
         public DelegateCommand CheckBoxDisableDeleteOneDriveCommand { get; set; }
         public DelegateCommand CheckBoxDisableEventLogProcessingCommand { get; set; }
         public DelegateCommand CheckBoxDisableUpdatesCommand { get; set; }
         public DelegateCommand CheckBoxDisableCollectionHandwrittenInputCommand { get; set; }
-       
-       // public DelegateCommand CheckBoxDisableDownloadAppsCommand { get; set; }
-
-
 
         public void OnCheckBoxDisableMicrosoftTelemetryPress()
         {
@@ -155,13 +117,6 @@ namespace Twixer.MVVM.ViewModel
         {
             new PrivacyModel().DisableCollectionHandwrittenInput(Convert.ToInt32(CheckedDisableCollectionHandwrittenInput));
         }
-
-        
-
-        //public void OnCheckBoxDisableDownloadAppsPress()
-        //{
-        //    new PrivacyModel().DisableDownloadApps(Convert.ToInt32(CheckedDisableDownloadApps));
-        //}
 
         public PrivacyViewModel()
         {

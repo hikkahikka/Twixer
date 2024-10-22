@@ -41,7 +41,7 @@ namespace Twixer.MVVM.Model
                 }
             }
               
-            Register register = new Register();
+            SystemInfoRegister register = new SystemInfoRegister();
             
             data.OperationSystem = register.GetOperationSystemInfo();
             data.Motherboard = register.GetMotherboardInfo();
@@ -71,7 +71,7 @@ namespace Twixer.MVVM.Model
         }
         public string SetTimeOfWorkInfo()
         {
-            Register data = new Register();
+            SystemInfoRegister data = new SystemInfoRegister();
             return data.GetTimeOfWorkInfo();
         }
 

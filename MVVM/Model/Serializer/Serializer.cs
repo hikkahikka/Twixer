@@ -12,9 +12,9 @@ namespace Twixer.MVVM.Model
 {
     internal class Serializer : IPrivacySerializer, IInfoAboutSystemSerializer, ISystemSerializer
     {
-        public InfoAboutSystemData DeserializeInfoAboutSystem(string json_path)
+        public InfoAboutSystemData DeserializeInfoAboutSystem(string json)
         {
-            InfoAboutSystemData data = JsonConvert.DeserializeObject<InfoAboutSystemData>(File.ReadAllText(json_path));       
+            InfoAboutSystemData data = JsonConvert.DeserializeObject<InfoAboutSystemData>(json);       
             return data;
         }
         public string SerializeInfoAboutSystem(InfoAboutSystemData data)

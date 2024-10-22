@@ -129,16 +129,18 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\Model\InfoAboutSystemData.cs" />
-    <Compile Include="MVVM\Model\IInfoAboutSystemSerializer.cs" />
-    <Compile Include="MVVM\Model\ISystemSerializer.cs" />
-    <Compile Include="MVVM\Model\PrivacyData.cs" />
-    <Compile Include="MVVM\Model\IPrivacySerializer.cs" />
+    <Compile Include="MVVM\Model\Data\InfoAboutSystemData.cs" />
+    <Compile Include="MVVM\Model\Register\PrivacyRegister.cs" />
+    <Compile Include="MVVM\Model\Register\SystemRegister.cs" />
+    <Compile Include="MVVM\Model\Serializer\IInfoAboutSystemSerializer.cs" />
+    <Compile Include="MVVM\Model\Serializer\ISystemSerializer.cs" />
+    <Compile Include="MVVM\Model\Data\PrivacyData.cs" />
+    <Compile Include="MVVM\Model\Serializer\IPrivacySerializer.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\PrivacyModel.cs" />
-    <Compile Include="MVVM\Model\Register.cs" />
-    <Compile Include="MVVM\Model\Serializer.cs" />
-    <Compile Include="MVVM\Model\SystemData.cs" />
+    <Compile Include="MVVM\Model\Register\SystemInfoRegister.cs" />
+    <Compile Include="MVVM\Model\Serializer\Serializer.cs" />
+    <Compile Include="MVVM\Model\Data\SystemData.cs" />
     <Compile Include="MVVM\Model\SystemModel.cs" />
     <Compile Include="MVVM\Model\InfoAboutSystemModel.cs" />
     <Compile Include="MVVM\ViewModel\SystemViewModel.cs" />

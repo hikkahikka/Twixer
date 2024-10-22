@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Twixer.MVVM.Model
 {
-    internal class Register
+    internal class SystemInfoRegister
     {
         public string GetOperationSystemInfo()
         {
@@ -226,5 +226,6 @@ namespace Twixer.MVVM.Model
             }
 
         }
+
     }
 }
