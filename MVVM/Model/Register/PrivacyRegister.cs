@@ -35,8 +35,7 @@ namespace Twixer.MVVM.Model.Register
 
         }
         
-
-        public void SetEventLogProcessing(int value)
+        public void DisableEventLogProcessing(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
