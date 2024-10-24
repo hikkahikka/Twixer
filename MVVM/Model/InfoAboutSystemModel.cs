@@ -55,14 +55,16 @@ namespace Twixer.MVVM.Model
             {
                 File.WriteAllText(json_path, json);
             }
-            catch(IOException)
+            catch (IOException)
             {
                 string random_time = SetTimeOfWorkInfo();
                 string new_path = random_time + json_path;
-                if(!File.Exists(new_path))
+                if (!File.Exists(new_path))
+                {
                     File.WriteAllText(new_path, json);
+                }
             }
-            catch  
+            catch
             {
                 throw new NotImplementedException("string path to json is invalid");
             }

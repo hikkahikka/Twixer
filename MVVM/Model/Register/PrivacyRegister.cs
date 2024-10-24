@@ -13,10 +13,11 @@ namespace Twixer.MVVM.Model.Register
     {
         public void DisableMicrosoftTelemetry(int value)
         {
+            RegistryKey wKey = null;
             try
             {
                 RegistryKey myKey = Registry.LocalMachine;
-                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
                 wKey.SetValue("AllowTelemetry", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
             }
             catch (Exception e)
@@ -25,7 +26,10 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                wKey.Close();
+                if (wKey != null)
+                {
+                    wKey.Close();
+                }
             }
 
 
@@ -33,9 +37,10 @@ namespace Twixer.MVVM.Model.Register
         
         public void DisableEventLogProcessing(int value)
         {
+            RegistryKey myKey = null;
             try
             {
-                RegistryKey myKey = Registry.LocalMachine;
+                myKey = Registry.LocalMachine;
                 RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey eventLog = wKey.CreateSubKey("EventLog");
                 RegistryKey setupLog = eventLog.CreateSubKey("Setup");
@@ -51,7 +56,10 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                myKey.Close();
+                if (myKey != null)
+                {
+                    myKey.Close();
+                }
             }
 
             Process process = Process.Start(new ProcessStartInfo
@@ -69,9 +77,10 @@ namespace Twixer.MVVM.Model.Register
 
         public void DisableUpdates(int value)
         {
+            RegistryKey myKey = null;
             try
             {
-                RegistryKey myKey = Registry.LocalMachine;
+                myKey = Registry.LocalMachine;
                 RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey windowsUpdate = wKey.CreateSubKey("WindowsUpdate");
                 RegistryKey setupLog = windowsUpdate.CreateSubKey("AU");
@@ -87,15 +96,19 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                myKey.Close();
+                if (myKey != null)
+                {
+                    myKey.Close();
+                }
             }
         }
 
         public void DisableCollectionHandwrittenInput(int value)
         {
-           try
+            RegistryKey myKey = null;
+            try
             {
-                RegistryKey myKey = Registry.CurrentUser;
+                myKey = Registry.CurrentUser;
                 RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
 
  
@@ -112,17 +125,20 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                myKey.Close();
+                if (myKey != null)
+                {
+                    myKey.Close();
+                }
             }
 
 
 
 
-
+            RegistryKey myKey2 = null;
 
             try
             {
-                RegistryKey myKey2 = Registry.LocalMachine;
+                myKey2 = Registry.LocalMachine;
     
                 RegistryKey wKey2 = myKey2.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
 
@@ -139,7 +155,10 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                myKey2.Close();
+                if (myKey2 != null)
+                {
+                    myKey2.Close();
+                }
             }
         }
 
