@@ -13,14 +13,10 @@ namespace Twixer.MVVM.Model.Register
     {
         public void DisableMicrosoftTelemetry(int value)
         {
-
-
-            RegistryKey myKey = Registry.LocalMachine;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
-
             try
             {
-
+                RegistryKey myKey = Registry.LocalMachine;
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
                 wKey.SetValue("AllowTelemetry", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
             }
             catch (Exception e)
@@ -37,12 +33,10 @@ namespace Twixer.MVVM.Model.Register
         
         public void DisableEventLogProcessing(int value)
         {
-            RegistryKey myKey = Registry.LocalMachine;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
-
             try
             {
-
+                RegistryKey myKey = Registry.LocalMachine;
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey eventLog = wKey.CreateSubKey("EventLog");
                 RegistryKey setupLog = eventLog.CreateSubKey("Setup");
 
@@ -75,12 +69,10 @@ namespace Twixer.MVVM.Model.Register
 
         public void DisableUpdates(int value)
         {
-            RegistryKey myKey = Registry.LocalMachine;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
-
             try
             {
-
+                RegistryKey myKey = Registry.LocalMachine;
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey windowsUpdate = wKey.CreateSubKey("WindowsUpdate");
                 RegistryKey setupLog = windowsUpdate.CreateSubKey("AU");
 
@@ -101,12 +93,12 @@ namespace Twixer.MVVM.Model.Register
 
         public void DisableCollectionHandwrittenInput(int value)
         {
-            RegistryKey myKey = Registry.CurrentUser;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
-
-            try
+           try
             {
+                RegistryKey myKey = Registry.CurrentUser;
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
 
+ 
                 RegistryKey windowsUpdate = wKey.CreateSubKey("InputPersonalization");
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
                 curKey.SetValue("RestrictImplicitTextCollection", value, RegistryValueKind.DWord);
@@ -127,12 +119,12 @@ namespace Twixer.MVVM.Model.Register
 
 
 
-            RegistryKey myKey2 = Registry.LocalMachine;
-
-            RegistryKey wKey2 = myKey2.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
 
             try
             {
+                RegistryKey myKey2 = Registry.LocalMachine;
+    
+                RegistryKey wKey2 = myKey2.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
 
                 RegistryKey newKey2 = wKey2.CreateSubKey("HandwritingErrorReports");
 
