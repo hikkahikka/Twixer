@@ -19,24 +19,11 @@ namespace Twixer.MVVM.ViewModel
         }
 
         private bool _buffCheckedDisableMicrosoftTelemetry;
-        private bool _buffCheckedDisableDeteleOneDrive;
+
         private bool _buffCheckedDisableEventLogProcessing;
         private bool _buffCheckedDisableUpdates;
         private bool _buffCheckedDisableCollectionHandwrittenInput;
 
-        private bool _buffIsEnableDeleteOneDrive = true;
-
-        public bool IsEnableDeteleOneDrive
-        {
-
-            get => _buffIsEnableDeleteOneDrive;
-            set
-            {
-                _buffIsEnableDeleteOneDrive = value;
-                OnPropertyChanged(nameof(IsEnableDeteleOneDrive));
-            }
-
-        }
         public bool CheckedDisableMicrosoftTelemetry
         {
             get => _buffCheckedDisableMicrosoftTelemetry;
@@ -45,15 +32,6 @@ namespace Twixer.MVVM.ViewModel
                 _buffCheckedDisableMicrosoftTelemetry = value;
                 OnPropertyChanged(nameof(CheckedDisableMicrosoftTelemetry));
                 
-            }
-        }
-        public bool CheckedDisableDeleteOneDrive
-        {
-            get => _buffCheckedDisableDeteleOneDrive;
-            set
-            {
-                _buffCheckedDisableDeteleOneDrive= value;
-                OnPropertyChanged(nameof(CheckedDisableDeleteOneDrive));
             }
         }
         public bool CheckedDisableEventLogProcessing
@@ -92,36 +70,33 @@ namespace Twixer.MVVM.ViewModel
 
         public void OnCheckBoxDisableMicrosoftTelemetryPress()
         {
-            new PrivacyModel().DisableMicrosoftTelemetry(Convert.ToInt32(CheckedDisableMicrosoftTelemetry));
+            new PrivacyModel().SetMicrosoftTelemetry(Convert.ToInt32(CheckedDisableMicrosoftTelemetry));
 
         }
-
-        public void OnCheckBoxDisableDeleteOneDrivePress()
-        {
-            new PrivacyModel().DisableDeleteOneDrive();
-            IsEnableDeteleOneDrive=false;
-        }
-
         public void OnCheckBoxDisableEventLogProcessingPress()
         {
-            new PrivacyModel().DisableEventLogProcessing(Convert.ToInt32(CheckedDisableEventLogProcessing));
+            new PrivacyModel().SetEventLogProcessing(Convert.ToInt32(CheckedDisableEventLogProcessing));
 
         }
 
         public void OnCheckBoxDisableUpdatesPress()
         {
-            new PrivacyModel().DisableUpdates(Convert.ToInt32(CheckedDisableUpdates));
+            new PrivacyModel().SetUpdates(Convert.ToInt32(CheckedDisableUpdates));
         }
 
         public void OnCheckBoxDisableCollectionHandwrittenInputPress()
         {
-            new PrivacyModel().DisableCollectionHandwrittenInput(Convert.ToInt32(CheckedDisableCollectionHandwrittenInput));
+            new PrivacyModel().SetCollectionHandwrittenInput(Convert.ToInt32(CheckedDisableCollectionHandwrittenInput));
         }
 
+        private void SetPrivacyButtonsStatus()
+        {
+            PrivacyData data = new PrivacyData();
+
+        }
         public PrivacyViewModel()
         {
             CheckBoxDisableMicrosoftTelemetryCommand = new DelegateCommand(() => OnCheckBoxDisableMicrosoftTelemetryPress());
-            CheckBoxDisableDeleteOneDriveCommand = new DelegateCommand(() => OnCheckBoxDisableDeleteOneDrivePress());
             CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
             CheckBoxDisableUpdatesCommand = new DelegateCommand(()=>OnCheckBoxDisableUpdatesPress());
             CheckBoxDisableCollectionHandwrittenInputCommand = new DelegateCommand(()=>OnCheckBoxDisableCollectionHandwrittenInputPress());

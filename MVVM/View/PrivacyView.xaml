@@ -20,12 +20,6 @@
                   />
 
 
-        <CheckBox Content="Удаление OneDrive и всего, что с ним связано (безвозвратно)"
-                  Style="{StaticResource ListCheckBoxTheme}"
-                  Command="{Binding CheckBoxDisableDeleteOneDriveCommand}"
-                  IsChecked="{Binding CheckedDisableDeleteOneDrive}"
-                  IsEnabled="{Binding  IsEnableDeteleOneDrive}"/>
-
         <CheckBox Content="Отключение обновления Windows"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableUpdatesCommand}"

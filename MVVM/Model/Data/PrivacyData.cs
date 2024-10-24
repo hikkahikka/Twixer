@@ -9,9 +9,9 @@ namespace Twixer.MVVM.Model
     internal struct PrivacyData
     {
         public bool StatusMicrosoftTelemetry { get; set; }
-        public bool StatusDeleteOneDrive { get; set; }
         public bool StatusEventLogProcessing {  get; set; }
         public bool StatusUpdates {  get; set; }
         public bool StatusCollectionHandwrittenInput {  get; set; }
+
     }
 }

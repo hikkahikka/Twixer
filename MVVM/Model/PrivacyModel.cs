@@ -15,52 +15,20 @@ using Newtonsoft.Json;
 using System.Net;
 
 using System.Windows.Shell;
+using Twixer.MVVM.Model.Register;
 namespace Twixer.MVVM.Model
 {
     internal class PrivacyModel
     {
         IPrivacySerializer serializer;
-        public void DisableMicrosoftTelemetry(int value)
+        public void SetMicrosoftTelemetry(int value)
         {
-            
-
-            RegistryKey myKey = Registry.LocalMachine;
-            RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
-
-            try
-            {
-
-                wKey.SetValue("AllowTelemetry", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
-            }
-            finally
-            {
-                wKey.Close();
-            }
-
+            PrivacyRegister register = new PrivacyRegister();
+            register.DisableMicrosoftTelemetry(value);
             
         }
 
-        public void DisableDeleteOneDrive()
-        {
-
-            Process process = Process.Start(new ProcessStartInfo
-            {
-
-                FileName = "cmd",
-                Arguments = @$"/uninstall %SystemRoot%\SysWOW64\OneDriveSetup.exe",
-                CreateNoWindow = true,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-
-            });
-            
-        }
-
-        public void DisableEventLogProcessing(int value)
+        public void SetEventLogProcessing(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
@@ -98,7 +66,7 @@ namespace Twixer.MVVM.Model
            
         }
 
-        public void DisableUpdates(int value)
+        public void SetUpdates(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
@@ -124,7 +92,7 @@ namespace Twixer.MVVM.Model
             }
         }
 
-        public void DisableCollectionHandwrittenInput(int value)
+        public void SetCollectionHandwrittenInput(int value)
         {
             RegistryKey myKey = Registry.CurrentUser;
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);

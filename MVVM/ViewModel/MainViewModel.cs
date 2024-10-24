@@ -21,22 +21,10 @@ namespace Twixer.MVVM.ViewModel
 
         public DelegateCommand SystemViewCommand { get; set; }
 
-        //public DelegateCommand DefoltAppsCommand { get; set; }
-
-        public DelegateCommand InstallAppsCommand { get; set; }
-
-
-
-
         public DelegateCommand OnCloseButtonClickCommand { get; set; }
 
         public DelegateCommand OnTurnButtonClickCommand { get; set; }
 
-        //public DelegateCommand MousePressedToMovingCommand { get; set; }
-
-
-
-        //public DefoltAppsViewModel DefoltAppsVM { get; set; }
         public PrivacyViewModel PrivacyVM { get; set; }
         public InfoAboutSystemViewModel InfoAboutSystemVM { get; set; }
         public SystemViewModel SystemVM { get; set; }
@@ -59,10 +47,6 @@ namespace Twixer.MVVM.ViewModel
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
 
-        //private void OnMousePressedToMoving()
-        //{
-        //    new MainModel().DragWindow();
-        //}
 
         public MainViewModel()
         {
@@ -77,14 +61,8 @@ namespace Twixer.MVVM.ViewModel
 
             InfoAboutSystemViewCommand = new DelegateCommand(() => CurrentView = InfoAboutSystemVM);
 
-            
-            //MousePressedToMovingCommand = new DelegateCommand(OnMousePressedToMoving);
-
             OnCloseButtonClickCommand = new DelegateCommand(() => Application.Current.Shutdown());
             OnTurnButtonClickCommand = new DelegateCommand(() => Application.Current.MainWindow.WindowState = WindowState.Minimized);
-
-            
-
         }
         
     }
