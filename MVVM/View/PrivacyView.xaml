@@ -7,12 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <StackPanel>
-        <!--<StackPanel Orientation="Horizontal">
-            <Button Content="Выбрать все"
-                    Style="{StaticResource HelpingButtonTheme}"/>
-            <Button Content="Вернуть все значения по умолчанию"
-                    Style="{StaticResource HelpingButtonTheme}"/>
-        </StackPanel>-->
+
         <CheckBox Content="Отключение телеметрии от Microsoft"
                   Style="{StaticResource ListCheckBoxTheme}"
                   Command="{Binding CheckBoxDisableMicrosoftTelemetryCommand}"
@@ -35,11 +30,6 @@
                   Command="{Binding CheckBoxDisableCollectionHandwrittenInputCommand}"
                   IsChecked="{Binding CheckedDisableCollectionHandwrittenInput}"/>
 
-        
-        <!--<CheckBox Content="Запрет на установку приложений"
-                  Style="{StaticResource ListCheckBoxTheme}"
-                  
-                  />-->
 
     </StackPanel>
 </UserControl>

@@ -12,9 +12,10 @@ namespace Twixer.MVVM.Model
 {
     internal class Serializer : IPrivacySerializer, IInfoAboutSystemSerializer, ISystemSerializer
     {
+
         public InfoAboutSystemData DeserializeInfoAboutSystem(string json)
         {
-            InfoAboutSystemData data = JsonConvert.DeserializeObject<InfoAboutSystemData>(json);       
+            InfoAboutSystemData data = JsonConvert.DeserializeObject<InfoAboutSystemData>(json);
             return data;
         }
         public string SerializeInfoAboutSystem(InfoAboutSystemData data)
@@ -24,14 +25,18 @@ namespace Twixer.MVVM.Model
         }
 
 
-        public PrivacyData DeserializePrivacy()
+        public PrivacyData DeserializePrivacy(string json)
         {
-            throw new NotImplementedException();
+            PrivacyData data = JsonConvert.DeserializeObject<PrivacyData>(json);
+            return data;
         }
-        public void SerializePrivacy(PrivacyData data)
+        public string SerializePrivacy(PrivacyData data)
         {
-            throw new NotImplementedException();
+            string json = JsonConvert.SerializeObject(data);
+            return json;
         }
+
+
 
         public SystemData DeserializeSystem()
         {

@@ -8,8 +8,8 @@ namespace Twixer.MVVM.Model
 {
     internal interface IPrivacySerializer
     {
-        public PrivacyData DeserializePrivacy();
+        public PrivacyData DeserializePrivacy(string json_path);
 
-        public void SerializePrivacy(PrivacyData data);
+        public string SerializePrivacy(PrivacyData data);
     }
 }

@@ -21,6 +21,36 @@ namespace Twixer.MVVM.Model
     internal class PrivacyModel
     {
         IPrivacySerializer serializer;
+
+        private const string json_path = "privacy.json";
+        public PrivacyData GetPrivacyData()
+        {
+            string json;
+            Serializer serializer = new();
+            PrivacyData data = new();
+            while (File.Exists(json_path))
+            {
+                try
+                {
+                    json = File.ReadAllText(json_path);
+                    data = serializer.DeserializePrivacy(json);
+                    return data;
+                }
+                catch
+                {
+                    break;
+                }
+            }
+
+            SystemInfoRegister register = new SystemInfoRegister();
+
+           
+            json = serializer.SerializePrivacy(data);
+            
+
+            return data;
+        }
+
         public void SetMicrosoftTelemetry(int value)
         {
             PrivacyRegister register = new PrivacyRegister();
