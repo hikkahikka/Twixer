@@ -93,6 +93,7 @@ namespace Twixer.MVVM.ViewModel
         {
             PrivacyData data = new PrivacyData();
 
+
         }
         public PrivacyViewModel()
         {

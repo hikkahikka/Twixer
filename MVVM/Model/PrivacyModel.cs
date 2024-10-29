@@ -25,30 +25,10 @@ namespace Twixer.MVVM.Model
         private const string json_path = "privacy.json";
         public PrivacyData GetPrivacyData()
         {
-            string json;
-            Serializer serializer = new();
-            PrivacyData data = new();
-            while (File.Exists(json_path))
-            {
-                try
-                {
-                    json = File.ReadAllText(json_path);
-                    data = serializer.DeserializePrivacy(json);
-                    return data;
-                }
-                catch
-                {
-                    break;
-                }
-            }
-
-            SystemInfoRegister register = new SystemInfoRegister();
-
-           
-            json = serializer.SerializePrivacy(data);
-            
-
-            return data;
+            PrivacyData privacyData = new();
+            PrivacyRegister register = new ();
+            privacyData.StatusMicrosoftTelemetry=register.GetStatusMicrosoftTelemetry();
+            return privacyData;
         }
 
         public void SetMicrosoftTelemetry(int value)

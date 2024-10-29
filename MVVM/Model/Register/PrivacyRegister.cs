@@ -1,12 +1,15 @@
 ﻿using Microsoft.Win32;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Media.Animation;
 
 namespace Twixer.MVVM.Model.Register
 {
@@ -170,6 +173,32 @@ namespace Twixer.MVVM.Model.Register
             {
                 wKey2?.Close();
             }
+        }
+
+        public bool GetStatusMicrosoftTelemetry()
+        {           
+            try
+            {
+                var result = Registry.GetValue(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry", null);
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableMicrosoftTelemetry(1);
+                    return false;
+                }
+                else {
+                    return (bool)result;
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                return false;
+            }
+            
+            
         }
 
     }
