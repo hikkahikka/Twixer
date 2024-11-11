@@ -192,6 +192,11 @@ namespace Twixer.MVVM.Model.Register
 
 
             }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                return false;
+            }
             catch (Exception e)
             {
                 MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
