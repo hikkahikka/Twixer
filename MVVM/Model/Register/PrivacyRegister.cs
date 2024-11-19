@@ -146,7 +146,7 @@ namespace Twixer.MVVM.Model.Register
                 if (result == null)
                 {
                     PrivacyRegister register = new PrivacyRegister();
-                    register.DisableMicrosoftTelemetry(0);
+                    register.DisableEventLogProcessing(0);
                     return false;
                 }
                 else
@@ -173,6 +173,7 @@ namespace Twixer.MVVM.Model.Register
 
 
         }
+
 
         public void DisableUpdates(int value)
         {
@@ -203,7 +204,50 @@ namespace Twixer.MVVM.Model.Register
                 wKey?.Close();
             }
         }
+        public bool GetStatusUpdates()
+        {
+            RegistryKey myKey = Registry.LocalMachine;
 
+            RegistryKey wKey = null;
+
+            try
+            {
+                
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+                RegistryKey windowsUpdate = wKey.CreateSubKey("WindowsUpdate");
+                RegistryKey setupLog = windowsUpdate.CreateSubKey("AU");
+                var result = Registry.GetValue(setupLog.ToString(), "NoAutoUpdate", null);
+
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableUpdates(0);
+                    return false;
+                }
+                else
+                {
+                    return (bool)result;
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                return false;
+            }
+            finally
+            {
+                setupLog?.Close();
+            }
+
+
+        }
         public void DisableCollectionHandwrittenInput(int value)
         {
             RegistryKey myKey = Registry.CurrentUser;
@@ -264,7 +308,48 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
-        
 
+        public bool GetStatusCollectionHandwrittenInput()
+        {
+
+            RegistryKey myKey = Registry.CurrentUser;
+            RegistryKey wKey = null;
+
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
+                RegistryKey windowsUpdate = wKey.CreateSubKey("InputPersonalization");
+                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
+                var result = Registry.GetValue(curKey.ToString(), "RestrictImplicitTextCollection", null);
+
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableCollectionHandwrittenInput(0);
+                    return false;
+                }
+                else
+                {
+                    return (bool)result;
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                return false;
+            }
+            finally
+            {
+                curKey?.Close();
+            }
+
+        }
     }
 }
