@@ -64,7 +64,7 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return (bool)result;
+                    return Convert.ToBoolean(result);
                 }
 
 
@@ -151,7 +151,8 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return (bool)result;
+                    return Convert.ToBoolean(result);
+
                 }
 
 
@@ -208,14 +209,14 @@ namespace Twixer.MVVM.Model.Register
         {
             RegistryKey myKey = Registry.LocalMachine;
 
-            RegistryKey wKey = null;
+            RegistryKey wKey, setupLog = null;
 
             try
             {
                 
                 wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey windowsUpdate = wKey.CreateSubKey("WindowsUpdate");
-                RegistryKey setupLog = windowsUpdate.CreateSubKey("AU");
+                setupLog = windowsUpdate.CreateSubKey("AU");
                 var result = Registry.GetValue(setupLog.ToString(), "NoAutoUpdate", null);
 
                 if (result == null)
@@ -226,7 +227,8 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return (bool)result;
+                    return Convert.ToBoolean(result);
+
                 }
 
 
@@ -313,13 +315,13 @@ namespace Twixer.MVVM.Model.Register
         {
 
             RegistryKey myKey = Registry.CurrentUser;
-            RegistryKey wKey = null;
+            RegistryKey wKey, curKey = null;
 
             try
             {
                 wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft", true);
                 RegistryKey windowsUpdate = wKey.CreateSubKey("InputPersonalization");
-                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
+                curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\InputPersonalization", true);
                 var result = Registry.GetValue(curKey.ToString(), "RestrictImplicitTextCollection", null);
 
                 if (result == null)
@@ -330,7 +332,8 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return (bool)result;
+                    return Convert.ToBoolean(result);
+
                 }
 
 

@@ -91,12 +91,16 @@ namespace Twixer.MVVM.ViewModel
 
         private void SetPrivacyButtonsStatus()
         {
-            PrivacyData data = new PrivacyData();
-
+            PrivacyData data = new PrivacyModel().GetPrivacyData();
+            CheckedDisableMicrosoftTelemetry = data.StatusMicrosoftTelemetry;
+            CheckedDisableEventLogProcessing = data.StatusEventLogProcessing;
+            CheckedDisableUpdates = data.StatusUpdates;
+            CheckedDisableCollectionHandwrittenInput = data.StatusCollectionHandwrittenInput;
 
         }
         public PrivacyViewModel()
         {
+            SetPrivacyButtonsStatus();
             CheckBoxDisableMicrosoftTelemetryCommand = new DelegateCommand(() => OnCheckBoxDisableMicrosoftTelemetryPress());
             CheckBoxDisableEventLogProcessingCommand = new DelegateCommand(()=>OnCheckBoxDisableEventLogProcessingPress());
             CheckBoxDisableUpdatesCommand = new DelegateCommand(()=>OnCheckBoxDisableUpdatesPress());

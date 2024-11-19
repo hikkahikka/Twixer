@@ -28,6 +28,9 @@ namespace Twixer.MVVM.Model
             PrivacyData privacyData = new();
             PrivacyRegister register = new ();
             privacyData.StatusMicrosoftTelemetry=register.GetStatusMicrosoftTelemetry();
+            privacyData.StatusEventLogProcessing=register.GetStatusEventLogProcessing();
+            privacyData.StatusUpdates=register.GetStatusUpdates();
+            privacyData.StatusCollectionHandwrittenInput=register.GetStatusCollectionHandwrittenInput();
             return privacyData;
         }
 
