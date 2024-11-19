@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Emit;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,20 +43,64 @@ namespace Twixer.MVVM.Model.Register
                 wKey?.Close();
             }
         }
-        
-        public void DisableEventLogProcessing(int value)
+
+        public bool GetStatusMicrosoftTelemetry()
         {
+
             RegistryKey myKey = Registry.LocalMachine;
+
             RegistryKey wKey = null;
 
             try
             {
-                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", true);
+                var result = Registry.GetValue(wKey.ToString(), "AllowTelemetry", null);
+                
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableMicrosoftTelemetry(1);
+                    return false;
+                }
+                else
+                {
+                    return (bool)result;
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
+
+        }
+
+        public void DisableEventLogProcessing(int value)
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+
+            RegistryKey curKey = null;
+
+
+            try
+            {
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
                 RegistryKey eventLog = wKey.CreateSubKey("EventLog");
                 RegistryKey setupLog = eventLog.CreateSubKey("Setup");
 
 
-                RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
+                curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
                 curKey.SetValue("Enabled", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.String);
             }
             catch (SecurityException e)
@@ -69,7 +114,7 @@ namespace Twixer.MVVM.Model.Register
             }
             finally
             {
-                wKey?.Close();
+                curKey?.Close();
             }
 
             Process process = Process.Start(new ProcessStartInfo
@@ -82,6 +127,50 @@ namespace Twixer.MVVM.Model.Register
                 RedirectStandardOutput = true,
 
             });
+
+        }
+
+        public bool GetStatusEventLogProcessing()
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+
+            RegistryKey curKey = null;
+            try
+            {
+                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
+                RegistryKey eventLog = wKey.CreateSubKey("EventLog");
+                RegistryKey setupLog = eventLog.CreateSubKey("Setup");
+                curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
+                var result = Registry.GetValue(curKey.ToString(), "Enable", null);
+
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableMicrosoftTelemetry(0);
+                    return false;
+                }
+                else
+                {
+                    return (bool)result;
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                return false;
+            }
+            finally
+            {
+                curKey?.Close();
+            }
+
 
         }
 
@@ -175,36 +264,7 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
-        public bool GetStatusMicrosoftTelemetry()
-        {           
-            try
-            {
-                var result = Registry.GetValue(@"SOFTWARE\Policies\Microsoft\Windows\DataCollection", "AllowTelemetry", null);
-                if (result == null)
-                {
-                    PrivacyRegister register = new PrivacyRegister();
-                    register.DisableMicrosoftTelemetry(1);
-                    return false;
-                }
-                else {
-                    return (bool)result;
-                }
-
-
-            }
-            catch (SecurityException e)
-            {
-                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
-                return false;
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
-                return false;
-            }
-            
-            
-        }
+        
 
     }
 }
