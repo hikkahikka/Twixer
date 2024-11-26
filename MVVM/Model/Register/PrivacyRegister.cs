@@ -72,6 +72,7 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
                 return false;
             }
             catch (Exception e)
@@ -160,6 +161,7 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
                 return false;
             }
             catch (Exception e)
@@ -236,6 +238,7 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
                 return false;
             }
             catch (Exception e)
@@ -341,6 +344,7 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
                 return false;
             }
             catch (Exception e)
