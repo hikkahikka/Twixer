@@ -64,7 +64,7 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return Convert.ToBoolean(result);
+                    return !Convert.ToBoolean(result);
                 }
 
 
@@ -138,21 +138,22 @@ namespace Twixer.MVVM.Model.Register
             RegistryKey curKey = null;
             try
             {
-                RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
-                RegistryKey eventLog = wKey.CreateSubKey("EventLog");
-                RegistryKey setupLog = eventLog.CreateSubKey("Setup");
+
+
+                
                 curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
-                var result = Registry.GetValue(curKey.ToString(), "Enable", null);
+                var result = Registry.GetValue(curKey.ToString(), "Enabled", null);
+               
 
                 if (result == null)
                 {
                     PrivacyRegister register = new PrivacyRegister();
                     register.DisableEventLogProcessing(0);
-                    return false;
+                    return !false;
                 }
                 else
                 {
-                    return Convert.ToBoolean(result);
+                    return !Convert.ToBoolean(Convert.ToInt32(result));
 
                 }
 
@@ -162,12 +163,12 @@ namespace Twixer.MVVM.Model.Register
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
                 Environment.Exit(0);
-                return false;
+                return !false;
             }
             catch (Exception e)
             {
                 MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
-                return false;
+                return !false;
             }
             finally
             {
@@ -312,8 +313,6 @@ namespace Twixer.MVVM.Model.Register
                 wKey2?.Close();
             }
         }
-
-
         public bool GetStatusCollectionHandwrittenInput()
         {
 
