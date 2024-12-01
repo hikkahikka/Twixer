@@ -31,10 +31,11 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Телеметрии");
 
             }
 
@@ -77,7 +78,7 @@ namespace Twixer.MVVM.Model.Register
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Телеметрии");
                 return false;
             }
             finally
@@ -107,10 +108,11 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Журнала событий");
 
             }
             finally
@@ -167,7 +169,7 @@ namespace Twixer.MVVM.Model.Register
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Журнала событий");
                 return !false;
             }
             finally
@@ -197,10 +199,11 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Обновлений");
 
             }
             finally
@@ -244,7 +247,7 @@ namespace Twixer.MVVM.Model.Register
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Обновлений");
                 return false;
             }
             finally
@@ -271,10 +274,11 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Ручного ввода");
 
             }
             finally
@@ -302,10 +306,11 @@ namespace Twixer.MVVM.Model.Register
             catch (SecurityException e)
             {
                 MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Ручного ввода");
 
             }
             finally
@@ -348,7 +353,7 @@ namespace Twixer.MVVM.Model.Register
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить", "Поражение");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Ручного ввода");
                 return false;
             }
             finally
