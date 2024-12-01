@@ -19,10 +19,7 @@ using Twixer.MVVM.Model.Register;
 namespace Twixer.MVVM.Model
 {
     internal class PrivacyModel
-    {
-        IPrivacySerializer serializer;
-
-        private const string json_path = "privacy.json";
+    {     
         public PrivacyData GetPrivacyData()
         {
             PrivacyData privacyData = new();

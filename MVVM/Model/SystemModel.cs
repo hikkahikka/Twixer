@@ -190,10 +190,6 @@ namespace Twixer.MVVM.Model
 
                 try
                 {
-
-                    // Открываем ветку реестра "Control Panel\Desktop"
-
-                    // Изменяем значение ключа "Wallpaper" на пустую строку
                     key.SetValue("Wallpaper", "");
 
                 }
@@ -204,7 +200,6 @@ namespace Twixer.MVVM.Model
                 }
                 finally
                 {
-                    // Закрываем ключ реестра
                     key.Close();
                 }
 
@@ -219,10 +214,6 @@ namespace Twixer.MVVM.Model
 
                 try
                 {
-
-                    // Открываем ветку реестра "Control Panel\Desktop"
-
-                    // Изменяем значение ключа "Wallpaper" на пустую строку
                     key.SetValue("Wallpaper", @"C:\Windows\Web\Screen\img105.jpg");
 
                 }
@@ -233,7 +224,6 @@ namespace Twixer.MVVM.Model
                 }
                 finally
                 {
-                    // Закрываем ключ реестра
                     key.Close();
                 }
             }
