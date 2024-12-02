@@ -17,15 +17,46 @@ namespace Twixer.MVVM.Model
     {
         public SystemData GetSystemData()
         {
-            throw new NotImplementedException();
+            SystemData data = new SystemData();
+            SystemRegister  register = new SystemRegister();
+            data.StatusMemoryDiagnostics = register.GetMemoryDiagnostics();
+            data.StatusUAC=register.GetUAC();
+            data.StatusSecurityNotification = register.GetSecurityNotification();
+            data.StatusCortana=register.GetCortana();
+            data.StatusTaskManager = register.GetTaskManager();
+            data.StatusCache = register.GetCache();
+            data.StatusDefenderWindows = register.GetDefenderWindows();
+            return data;
         }
-        public void SetSecurityNotification(int value) { }
-        public void SetDefenderWindows(int value) { }
-        public void SetUAC(int value) { }
-        public void SetTaskManager(int value) { }
-        public void SetMemoryDiagnostics(int value) { }
-        public void SetCortana(int value) { }
-        public void SetCache (int value) { }
+        public void SetSecurityNotification(int value) {
+            SystemRegister register = new SystemRegister();
+            register.DisableSecurityNotification(value);
+        }
+        public void SetDefenderWindows(int value) {
+            SystemRegister register = new SystemRegister();
+            register.DisableDefenderWindows(value);
+        }
+        public void SetUAC(int value) {
+            SystemRegister register = new SystemRegister();
+            register.DisableUAC(value);
+        }
+        public void SetTaskManager(int value) {
+            SystemRegister register = new SystemRegister();
+            register.DisableTaskManager(value);
+        }
+        public void SetMemoryDiagnostics(int value) {
+            SystemRegister register = new SystemRegister();
+            register.DisableMemoryDiagnostics(value);
+        }
+        public void SetCortana(int value)
+        {
+            SystemRegister register = new SystemRegister();
+            register.DisableCortana(value);
+        }
+        public void SetCache (int value) {
+            SystemRegister register = new SystemRegister();
+            register.AddCache(value);
+        }
         
 
 

@@ -118,43 +118,55 @@ namespace Twixer.MVVM.ViewModel
 
         public void OnCheckBoxDisableSecurityNotificationPress()
         {         
-            new SystemModel().DisableSecurityNotification(Convert.ToInt32(CheckedDisableSecurityNotification));
+            new SystemModel().SetSecurityNotification(Convert.ToInt32(CheckedDisableSecurityNotification));
         }
 
         public void OnCheckBoxDisableDefenderWindowsPress()
         {
-            new SystemModel().DisableDefenderWindows(Convert.ToInt32(CheckedDisableDefenderWindows));
+            new SystemModel().SetDefenderWindows(Convert.ToInt32(CheckedDisableDefenderWindows));
         }
 
         public void OnCheckBoxDisableUACPress()
         {
-            new SystemModel().DisableUAC(Convert.ToInt32(CheckedDisableUAC));
+            new SystemModel().SetUAC(Convert.ToInt32(CheckedDisableUAC));
         }
 
         public void OnCheckBoxDisableTaskManagerPress()
         {
-            new SystemModel().DisableTaskManager(Convert.ToInt32(CheckedDisableTaskManager));
+            new SystemModel().SetTaskManager(Convert.ToInt32(CheckedDisableTaskManager));
         }
 
         public void OnCheckBoxDisableMemoryDiagnosticsPress()
         {
-            new SystemModel().DisableMemoryDiagnostics(Convert.ToInt32(CheckedDisableMemoryDiagnostics));
+            new SystemModel().SetMemoryDiagnostics(Convert.ToInt32(CheckedDisableMemoryDiagnostics));
         }
 
         public void OnCheckBoxDisableCortanaPress()
         {
-            new SystemModel().DisableCortana(Convert.ToInt32(CheckedDisableCortana));
+            new SystemModel().SetCortana(Convert.ToInt32(CheckedDisableCortana));
         }
 
         public void OnCheckBoxAddCachePress()
         {
-            new SystemModel().AddCache(Convert.ToInt32(CheckedAddCache));
+            new SystemModel().SetCache(Convert.ToInt32(CheckedAddCache));
+        }
+        private void SetSystemButtonsStatus()
+        {
+            SystemData data = new SystemModel().GetSystemData();
+            CheckedDisableSecurityNotification = data.StatusSecurityNotification;
+            CheckedDisableDefenderWindows = data.StatusDefenderWindows;
+            CheckedDisableUAC = data.StatusUAC;
+            CheckedDisableTaskManager = data.StatusTaskManager;
+            CheckedDisableMemoryDiagnostics = data.StatusMemoryDiagnostics;
+            CheckedDisableCortana = data.StatusCortana;
+            CheckedAddCache = data.StatusCache;
+
         }
 
-       
 
         public SystemViewModel()
         {
+            SetSystemButtonsStatus();
             CheckBoxDisableSecurityNotificationCommand = new DelegateCommand(() => OnCheckBoxDisableSecurityNotificationPress());
             CheckBoxDisableUACCommand = new DelegateCommand(() => OnCheckBoxDisableUACPress());
             CheckBoxDisableDefenderWindowsCommand = new DelegateCommand(() => OnCheckBoxDisableDefenderWindowsPress());

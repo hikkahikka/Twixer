@@ -66,7 +66,7 @@ namespace Twixer.MVVM.Model.Register
                 }
                 else
                 {
-                    return !Convert.ToBoolean(result);
+                    return Convert.ToBoolean(result);
                 }
 
 
@@ -304,6 +304,11 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
+
+        public bool GetCortana()
+        {
+            return false;
+        }
         public void AddCache(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
@@ -329,7 +334,10 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
-        
+        public bool GetCache()
+        {
+            return false;
+        }
 
     }
 }
