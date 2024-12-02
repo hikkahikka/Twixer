@@ -109,10 +109,11 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
-        public void DisableMemoryDiagnostics(bool value)
+        public void DisableMemoryDiagnostics(int value)
         {
             //иззначально этой записи нет, по умолчание no
-            if (value == true)
+
+            if (Convert.ToBoolean(value) == true)
             {
                 Process process = Process.Start(new ProcessStartInfo
                 {
@@ -168,21 +169,20 @@ namespace Twixer.MVVM.Model.Register
         public void AddCache(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
-
-
-
             try
             {
                 RegistryKey wKey = myKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management", true);
-
                 wKey.SetValue("DisablePagingExecutive", value, RegistryValueKind.DWord);
                 wKey.SetValue("LargeSystemCache", value, RegistryValueKind.DWord);
-
-
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Кэша");
 
             }
             finally
@@ -203,18 +203,20 @@ namespace Twixer.MVVM.Model.Register
                     key.SetValue("Wallpaper", "");
 
                 }
+                catch (SecurityException e)
+                {
+                    MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                    Environment.Exit(0);
+                }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                    MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Обоев");
 
                 }
                 finally
                 {
                     key.Close();
                 }
-
-
-
             }
             else
             {
@@ -225,9 +227,15 @@ namespace Twixer.MVVM.Model.Register
                     key.SetValue("Wallpaper", @"C:\Windows\Web\Screen\img105.jpg");
 
                 }
+                catch (SecurityException e)
+                {
+                    MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                    Environment.Exit(0);
+                }
                 catch (Exception e)
                 {
-                    MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                    MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Обоев");
+
                 }
                 finally
                 {
