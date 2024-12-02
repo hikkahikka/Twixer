@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,16 +25,20 @@ namespace Twixer.MVVM.Model.Register
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true);
                 curKey.SetValue("DisableNotificationCenter", value, RegistryValueKind.DWord);
             }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+            }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Уведомлений");
+
             }
             finally
             {
                 myKey.Close();
             }
-
-
         }
 
         public void DisableDefenderWindows(int value)
@@ -53,40 +58,49 @@ namespace Twixer.MVVM.Model.Register
 
         public void DisableUAC(int value)
         {
-
-            Process process = Process.Start(new ProcessStartInfo
+            RegistryKey myKey = Registry.LocalMachine;
+            RegistryKey wKey = null;
+            //тудум проверить в реестре
+            try
             {
-                FileName = "cmd",
-                Arguments = $@"C:\Windows\System32\cmd.exe /k %windir%\System32\reg.exe ADD HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v EnableLUA /t REG_DWORD /d {Convert.ToInt32(!Convert.ToBoolean(value))} /f",
-                CreateNoWindow = true,
-                UseShellExecute = false,
-                RedirectStandardOutput = true,
-
-            });
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
+                wKey.SetValue("EnableLUA", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении UAC");
+            }
+            finally
+            {
+                wKey?.Close();
+            }       
         }
 
         public void DisableTaskManager(int value)
         {
-
-
-
             RegistryKey myKey = Registry.CurrentUser;
-
-
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies", true);
 
             try
             {
-
                 RegistryKey newKey = wKey.CreateSubKey("System");
-
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
                 curKey.SetValue("DisableTaskMgr", value, RegistryValueKind.DWord);
 
             }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+            }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Диспетчера задач");
 
             }
             finally
@@ -97,6 +111,7 @@ namespace Twixer.MVVM.Model.Register
 
         public void DisableMemoryDiagnostics(bool value)
         {
+            //иззначально этой записи нет, по умолчание no
             if (value == true)
             {
                 Process process = Process.Start(new ProcessStartInfo
@@ -127,23 +142,21 @@ namespace Twixer.MVVM.Model.Register
         public void DisableCortana(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
-
-
             RegistryKey wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows", true);
-
             try
             {
                 RegistryKey windowsSearch = wKey.CreateSubKey("Windows Search");
-
-
-
                 RegistryKey curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true);
                 curKey.SetValue("AllowCortana", Convert.ToInt32(!Convert.ToBoolean(value)), RegistryValueKind.DWord);
-
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
             }
             catch (Exception e)
             {
-                MessageBox.Show("Произошла непредвиденная ошибка, прошу простить");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Кортаны");
 
             }
             finally
