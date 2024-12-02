@@ -102,11 +102,17 @@ namespace Twixer.MVVM.Model.Register
             });
         }
 
+        public bool GetDefenderWindows() {
+
+
+            return false;
+        }
+
         public void DisableUAC(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
             RegistryKey wKey = null;
-            //тудум проверить в реестре
+
             try
             {
                 wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
@@ -119,14 +125,52 @@ namespace Twixer.MVVM.Model.Register
             }
             catch (Exception e)
             {
-                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении UAC");
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении UAC");
             }
             finally
             {
                 wKey?.Close();
             }       
         }
+        public bool GetUAC()
+        {
+            RegistryKey myKey = Registry.LocalMachine;
+            RegistryKey wKey = null;
+            
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
+                var result = Registry.GetValue(wKey.ToString(), "EnableLUA", null);
 
+                if (result == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableSecurityNotification(1);//1 or 0 ?
+                    return false;
+                }
+                else
+                {
+                    return !Convert.ToBoolean(result);
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Уведомлений");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
+        }
         public void DisableTaskManager(int value)
         {
             RegistryKey myKey = Registry.CurrentUser;
