@@ -15,7 +15,7 @@ namespace Twixer.MVVM.Model
         public bool StatusMemoryDiagnostics { get; set; }
         public bool StatusCortana {  get; set; }
         public bool StatusCache { get; set; }
-        public bool StatusChangeWallpapers {  get; set; }
+        
     }
     
 }

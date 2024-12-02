@@ -145,7 +145,7 @@ namespace Twixer.MVVM.Model.Register
                 if (result == null)
                 {
                     SystemRegister register = new SystemRegister();
-                    register.DisableSecurityNotification(1);//1 or 0 ?
+                    register.DisableUAC(1);//1 or 0 ?
                     return false;
                 }
                 else
@@ -198,7 +198,52 @@ namespace Twixer.MVVM.Model.Register
                 myKey.Close();
             }
         }
+        public bool GetTaskManager()
+        {
+            RegistryKey myKey = Registry.CurrentUser;
 
+            RegistryKey wKey = null;
+
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System", true);
+                if (wKey == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableTaskManager(0);
+                    return false;
+                }
+                var result = Registry.GetValue(wKey.ToString(), "DisableTaskMgr", null);
+
+                if (result == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableMicrosoftTelemetry(1);
+                    return false;
+                }
+                else
+                {
+                    return Convert.ToBoolean(result);
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Диспетчера");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
+        }
         public void DisableMemoryDiagnostics(int value)
         {
             //иззначально этой записи нет, по умолчание no
@@ -229,7 +274,10 @@ namespace Twixer.MVVM.Model.Register
                 });
             }
         }
-
+        public bool GetMemoryDiagnostics()
+        {
+            return false;
+        }
         public void DisableCortana(int value)
         {
             RegistryKey myKey = Registry.LocalMachine;
@@ -281,60 +329,7 @@ namespace Twixer.MVVM.Model.Register
             }
         }
 
-        public void DisableChangeWallpapers(int value)
-        {
-
-            if (value == 1)
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-
-                try
-                {
-                    key.SetValue("Wallpaper", "");
-
-                }
-                catch (SecurityException e)
-                {
-                    MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
-                    Environment.Exit(0);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Обоев");
-
-                }
-                finally
-                {
-                    key.Close();
-                }
-            }
-            else
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(@"Control Panel\Desktop", true);
-
-                try
-                {
-                    key.SetValue("Wallpaper", @"C:\Windows\Web\Screen\img105.jpg");
-
-                }
-                catch (SecurityException e)
-                {
-                    MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
-                    Environment.Exit(0);
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(Convert.ToString(e), "Произошла ошибка при изменении Обоев");
-
-                }
-                finally
-                {
-                    key.Close();
-                }
-            }
-
-
-        }
+        
 
     }
 }

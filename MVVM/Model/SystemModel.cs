@@ -26,7 +26,7 @@ namespace Twixer.MVVM.Model
         public void SetMemoryDiagnostics(int value) { }
         public void SetCortana(int value) { }
         public void SetCache (int value) { }
-        public void SetChangeWallpapers(int value) { }
+        
 
 
     }
