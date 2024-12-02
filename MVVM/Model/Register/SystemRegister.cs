@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Security;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -40,7 +41,52 @@ namespace Twixer.MVVM.Model.Register
                 myKey.Close();
             }
         }
+        public bool GetSecurityNotification()
+        {
+            RegistryKey myKey = Registry.CurrentUser;
 
+            RegistryKey wKey = null;
+
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Explorer", true);
+                if (wKey == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableSecurityNotification(0);
+                    return false;
+                }
+                var result = Registry.GetValue(wKey.ToString(), "DisableNotificationCenter", null);
+
+                if (result == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableSecurityNotification(0);
+                    return false;
+                }
+                else
+                {
+                    return !Convert.ToBoolean(result);
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Уведомлений");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
+        }
         public void DisableDefenderWindows(int value)
         {
 
