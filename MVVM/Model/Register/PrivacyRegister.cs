@@ -144,6 +144,12 @@ namespace Twixer.MVVM.Model.Register
 
                 
                 curKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\EventLog\Setup", true);
+                if (curKey == null)
+                {
+                    PrivacyRegister register = new PrivacyRegister();
+                    register.DisableEventLogProcessing(0);
+                    return !false;
+                }
                 var result = Registry.GetValue(curKey.ToString(), "Enabled", null);
                
 

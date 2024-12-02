@@ -133,9 +133,7 @@
     <Compile Include="MVVM\Model\Register\PrivacyRegister.cs" />
     <Compile Include="MVVM\Model\Register\SystemRegister.cs" />
     <Compile Include="MVVM\Model\Serializer\IInfoAboutSystemSerializer.cs" />
-    <Compile Include="MVVM\Model\Serializer\ISystemSerializer.cs" />
     <Compile Include="MVVM\Model\Data\PrivacyData.cs" />
-    <Compile Include="MVVM\Model\Serializer\IPrivacySerializer.cs" />
     <Compile Include="MVVM\Model\MainModel.cs" />
     <Compile Include="MVVM\Model\PrivacyModel.cs" />
     <Compile Include="MVVM\Model\Register\SystemInfoRegister.cs" />

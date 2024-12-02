@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Twixer.MVVM.Model
 {
-    internal class Serializer : IPrivacySerializer, IInfoAboutSystemSerializer, ISystemSerializer
+    internal class Serializer : IInfoAboutSystemSerializer
     {
 
         public InfoAboutSystemData DeserializeInfoAboutSystem(string json)
@@ -25,26 +25,6 @@ namespace Twixer.MVVM.Model
         }
 
 
-        public PrivacyData DeserializePrivacy(string json)
-        {
-            PrivacyData data = JsonConvert.DeserializeObject<PrivacyData>(json);
-            return data;
-        }
-        public string SerializePrivacy(PrivacyData data)
-        {
-            string json = JsonConvert.SerializeObject(data);
-            return json;
-        }
-
-
-
-        public SystemData DeserializeSystem()
-        {
-            throw new NotImplementedException();
-        }
-        public void SerializeSystem(SystemData data)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -146,7 +146,7 @@ namespace Twixer.MVVM.ViewModel
 
         public void OnCheckBoxDisableMemoryDiagnosticsPress()
         {
-            new SystemModel().DisableMemoryDiagnostics(CheckedDisableMemoryDiagnostics);
+            new SystemModel().DisableMemoryDiagnostics(Convert.ToInt32(CheckedDisableMemoryDiagnostics));
         }
 
         public void OnCheckBoxDisableCortanaPress()

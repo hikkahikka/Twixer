@@ -21,6 +21,12 @@ namespace Twixer.MVVM.Model
         }
         public void SetSecurityNotification(int value) { }
         public void SetDefenderWindows(int value) { }
+        public void SetUAC(int value) { }
+        public void SetTaskManager(int value) { }
+        public void SetMemoryDiagnostics(int value) { }
+        public void SetCortana(int value) { }
+        public void SetCache (int value) { }
+        public void SetChangeWallpapers(int value) { }
 
 
     }
