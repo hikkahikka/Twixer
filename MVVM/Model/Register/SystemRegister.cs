@@ -145,7 +145,7 @@ namespace Twixer.MVVM.Model.Register
                 if (result == null)
                 {
                     SystemRegister register = new SystemRegister();
-                    register.DisableUAC(1);//1 or 0 ?
+                    register.DisableUAC(1);
                     return false;
                 }
                 else
@@ -217,8 +217,8 @@ namespace Twixer.MVVM.Model.Register
 
                 if (result == null)
                 {
-                    PrivacyRegister register = new PrivacyRegister();
-                    register.DisableMicrosoftTelemetry(1);
+                    SystemRegister register = new SystemRegister();
+                    register.DisableTaskManager(0);
                     return false;
                 }
                 else
@@ -303,11 +303,51 @@ namespace Twixer.MVVM.Model.Register
                 myKey.Close();
             }
         }
-
-
         public bool GetCortana()
         {
-            return false;
+            RegistryKey myKey = Registry.LocalMachine;
+
+            RegistryKey wKey = null;
+
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SOFTWARE\Policies\Microsoft\Windows\Windows Search", true);
+                if (wKey == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableCortana(0);
+                    return false;
+                }
+                var result = Registry.GetValue(wKey.ToString(), "AllowCortana", null);
+
+                if (result == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.DisableCortana(0);
+                    return false;
+                }
+                else
+                {
+                    return !Convert.ToBoolean(result);
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Кортаны");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
         }
         public void AddCache(int value)
         {
@@ -336,7 +376,44 @@ namespace Twixer.MVVM.Model.Register
 
         public bool GetCache()
         {
-            return false;
+            RegistryKey myKey = Registry.LocalMachine;
+
+            RegistryKey wKey = null;
+
+            try
+            {
+                wKey = myKey.OpenSubKey(@"SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management", true);
+                
+                var result = Registry.GetValue(wKey.ToString(), "DisablePagingExecutive", null);
+
+                if (result == null)
+                {
+                    SystemRegister register = new SystemRegister();
+                    register.AddCache(0);
+                    return false;
+                }
+                else
+                {
+                    return Convert.ToBoolean(result);
+                }
+
+
+            }
+            catch (SecurityException e)
+            {
+                MessageBox.Show("Скорее всего, вы запустили программу не от имени администратора!", "Неверный пользователь");
+                Environment.Exit(0);
+                return false;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(Convert.ToString(e), "Произошла ошибка при получении Кэша");
+                return false;
+            }
+            finally
+            {
+                wKey?.Close();
+            }
         }
 
     }
